@@ -2,18 +2,26 @@ import * as sst from "@serverless-stack/resources"
 
 export default class StorageStack extends sst.Stack {
   // Public reference to the table
-  table;
+  navigationsTable;
+  guidegroupsTable;
 
   constructor (scope, id, props) {
     super(scope, id, props)
 
     // Create the DynamoDB table
-    this.table = new sst.Table(this, "Navigations", {
+    this.navigationsTable = new sst.Table(this, "Navigations", {
       fields: {
         id: sst.TableFieldType.NUMBER,
         description: sst.TableFieldType.STRING,
       },
       primaryIndex: { partitionKey: "id"},
+    });
+
+    this.guidegroupsTable = new sst.Table(this, "Guidegroups", {
+      fields: {
+        id: sst.TableFieldType.NUMBER,
+      },
+      primaryIndex: { partitionKey: "id" },
     });
   }
 }

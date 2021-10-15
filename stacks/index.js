@@ -10,6 +10,7 @@ export default function main(app) {
   const storageStack = new StorageStack(app, "storage")
 
   new ApiStack(app, "api", {
-    table: storageStack.table
+    navigationsTable: storageStack.navigationsTable,
+    guidegroupsTable: storageStack.guidegroupsTable,
   })
 }
