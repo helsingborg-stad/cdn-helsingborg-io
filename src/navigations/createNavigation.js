@@ -7,7 +7,7 @@ export async function main(event) {
   const data = JSON.parse(event.body);
 
   const params = {
-    TableName: process.env.TABLE_NAME,
+    TableName: process.env.NAVIGATIONS_TABLE_NAME,
     Item: {
       // The attributes of the item to be created
       id: data.id,

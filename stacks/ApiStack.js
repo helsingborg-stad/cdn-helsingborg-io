@@ -11,6 +11,12 @@ export default class ApiStack extends sst.Stack {
 
     // Create the API
     this.api = new sst.ApiGatewayV1Api(this, "Api", {
+      defaultFunctionProps: {
+        environment: {
+          NAVIGATIONS_TABLE_NAME: navigationsTable.tableName,
+          GUIDEGROUPS_TABLE_NAME: guidegroupsTable.tableName,
+        },
+      },
       routes: {
         // navigations
         "POST /navigations": {
