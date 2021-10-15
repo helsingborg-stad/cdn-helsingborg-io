@@ -11,29 +11,31 @@ export default class ApiStack extends sst.Stack {
 
     // Create the API
     this.api = new sst.ApiGatewayV1Api(this, "Api", {
-      // navigations
-      "POST /navigations": {
-        function: {
-          srcPath: "src/navigations/",
-          handler: "createNavigation.main",
-          environment: { tableName: navigationsTable.tableName },
+      routes: {
+        // navigations
+        "POST /navigations": {
+          function: {
+            srcPath: "src/navigations/",
+            handler: "createNavigation.main",
+            environment: { tableName: navigationsTable.tableName },
+          },
         },
-      },
-      // Guidegroups
-      "GET /guidegroups": {
-        function: {
-          srcPath: "src/guidegroups/",
-          handler: "getGuidegroupList.main",
-          environment: { tableName: guidegroupsTable.tableName },
+        // Guidegroups
+        "GET /guidegroups": {
+          function: {
+            srcPath: "src/guidegroups/",
+            handler: "getGuidegroupList.main",
+            environment: { tableName: guidegroupsTable.tableName },
+          },
         },
-      },
-      "POST /guidegroups": {
-        function: {
-          srcPath: "src/guidegroups/",
-          handler: "createGuidegroup.main",
-          environment: { tableName: guidegroupsTable.tableName },
+        "POST /guidegroups": {
+          function: {
+            srcPath: "src/guidegroups/",
+            handler: "createGuidegroup.main",
+            environment: { tableName: guidegroupsTable.tableName },
+          },
         },
-      },
+      }
     });
 
     // Allow the API to access the table
