@@ -8,11 +8,21 @@ export async function main(event) {
 
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
-    Item: {
-      // The attributes of the item to be created
-      id: data.id,
-      description: data.description,
-    },
+      Item: {
+        id: data.id,
+        count: data.count,
+        description: data.description,
+        link: data.link,
+        name: data.name,
+        slug: data.slug,
+        taxonomy: data.taxonomy,
+        meta: data.meta,
+        layout: data.layout,
+        object_list: data.object_list,
+        user_groups: data.user_groups,
+        lang: data.lang,
+        translations: data.translations
+      },
   };
 
   try {
