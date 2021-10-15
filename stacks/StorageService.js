@@ -12,7 +12,6 @@ export default class StorageStack extends sst.Stack {
     this.navigationsTable = new sst.Table(this, "Navigations", {
       fields: {
         id: sst.TableFieldType.NUMBER,
-        description: sst.TableFieldType.STRING,
       },
       primaryIndex: { partitionKey: "id"},
     });
