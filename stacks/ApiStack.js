@@ -10,7 +10,7 @@ export default class ApiStack extends sst.Stack {
     const { table } = props;
 
     // Create the API
-    this.api = new sst.Api(this, "Api", {
+    this.api = new sst.ApiGatewayV1Api(this, "Api", {
       defaultFunctionProps: {
         environment: {
           TABLE_NAME: table.tableName,
