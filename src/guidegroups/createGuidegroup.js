@@ -6,9 +6,16 @@ export const main = handler(async (event) => {
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
     Item: {
-      // The attributes of the item to be created
       id: data.id,
+      count: data.count,
       description: data.description,
+      name: data.name,
+      slug: data.slug,
+      apperance: data.apperance,
+      settings: data.settings,
+      notice: data.notice,
+      lang: data.lang,
+      translations: data.translations
     },
   };
 
