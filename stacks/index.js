@@ -12,5 +12,6 @@ export default function main(app) {
   new ApiStack(app, "api", {
     navigationsTable: storageStack.navigationsTable,
     guidegroupsTable: storageStack.guidegroupsTable,
+    languagesTable: storageStack.languagesTable,
   })
 }

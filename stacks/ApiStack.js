@@ -7,7 +7,7 @@ export default class ApiStack extends sst.Stack {
   constructor (scope, id, props) {
     super(scope, id, props)
 
-    const { navigationsTable, guidegroupsTable } = props;
+    const { navigationsTable, guidegroupsTable, languagesTable } = props;
 
     // Create the API
     this.api = new sst.ApiGatewayV1Api(this, "Api", {
@@ -15,6 +15,7 @@ export default class ApiStack extends sst.Stack {
         environment: {
           NAVIGATIONS_TABLE_NAME: navigationsTable.tableName,
           GUIDEGROUPS_TABLE_NAME: guidegroupsTable.tableName,
+          LANGUAGES_TABLE_NAME: languagesTable.tableName,
         },
       },
       routes: {
@@ -41,11 +42,19 @@ export default class ApiStack extends sst.Stack {
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
+        // Languages
+        "POST /languages": {
+          function: {
+            srcPath: "src/languages",
+            handler: "createLanguages.main",
+            environment: { tableName: languagesTable.tableName },
+          }
+        }
       }
     });
 
     // Allow the API to access the table
-    this.api.attachPermissions([navigationsTable, guidegroupsTable])
+    this.api.attachPermissions([navigationsTable, guidegroupsTable, languagesTable])
 
     // Show the API endpoint in the output
     this.addOutputs({

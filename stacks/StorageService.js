@@ -4,11 +4,11 @@ export default class StorageStack extends sst.Stack {
   // Public reference to the table
   navigationsTable;
   guidegroupsTable;
+  languagesTable;
 
   constructor (scope, id, props) {
     super(scope, id, props)
 
-    // Create the DynamoDB table
     this.navigationsTable = new sst.Table(this, "Navigations", {
       fields: {
         id: sst.TableFieldType.NUMBER,
@@ -22,5 +22,12 @@ export default class StorageStack extends sst.Stack {
       },
       primaryIndex: { partitionKey: "id" },
     });
+
+    this.languagesTable = new sst.Table(this, "Languages", {
+      fields: {
+        term_id: sst.TableFieldType.NUMBER,
+      },
+      primaryIndex: { partitionKey: "term_id" },
+    })
   }
 }
