@@ -7,7 +7,7 @@ export const main = handler(async (event) => {
   const params = {
     TableName: process.env.LANGUAGES_TABLE_NAME,
     Item: {
-      term_id: data.id,
+      term_id: data.term_id,
       name: data.name,
       slug: data.slug,
       term_taxonomy_id: data.term_taxonomy_id,
