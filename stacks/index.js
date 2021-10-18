@@ -13,5 +13,6 @@ export default function main(app) {
     navigationsTable: storageStack.navigationsTable,
     guidegroupsTable: storageStack.guidegroupsTable,
     languagesTable: storageStack.languagesTable,
+    guidesTable: storageStack.guidesTable,
   })
 }

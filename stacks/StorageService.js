@@ -1,10 +1,10 @@
 import * as sst from "@serverless-stack/resources"
 
 export default class StorageStack extends sst.Stack {
-  // Public reference to the table
   navigationsTable;
   guidegroupsTable;
   languagesTable;
+  guidesTable;
 
   constructor (scope, id, props) {
     super(scope, id, props)
@@ -28,6 +28,13 @@ export default class StorageStack extends sst.Stack {
         term_id: sst.TableFieldType.NUMBER,
       },
       primaryIndex: { partitionKey: "term_id" },
+    })
+
+    this.guidesTable = new sst.Table(this, "Guides", {
+      fields: {
+        id: sst.TableFieldType.NUMBER,
+      },
+      primaryIndex: { partitionKey: "id" },
     })
   }
 }
