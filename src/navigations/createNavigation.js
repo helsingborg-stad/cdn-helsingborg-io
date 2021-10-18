@@ -21,7 +21,9 @@ export async function main(event) {
         object_list: data.object_list,
         user_groups: data.user_groups,
         lang: data.lang,
-        translations: data.translations
+        translations: data.translations,
+        // TODO: Remove items later (old middleware)
+        items: data.items
       },
   };
 
