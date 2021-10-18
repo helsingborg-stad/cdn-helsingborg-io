@@ -19,7 +19,14 @@ export default class ApiStack extends sst.Stack {
         },
       },
       routes: {
-        // navigations
+        // Navigations
+        "GET /navigations": {
+          function: {
+            srcPath: "src/navigations/",
+            handler: "getNavigations.main",
+            environment: { tableName: navigationsTable.tableName },
+          },
+        },
         "POST /navigations": {
           function: {
             srcPath: "src/navigations/",
