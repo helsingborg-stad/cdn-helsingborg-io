@@ -8,6 +8,5 @@ export const main = handler(async () => {
 
   const result = await dynamoDb.scan(params);
 
-  // Return the matching list of items in response body
   return result.Items;
 });

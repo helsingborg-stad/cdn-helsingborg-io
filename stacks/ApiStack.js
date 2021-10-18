@@ -38,7 +38,7 @@ export default class ApiStack extends sst.Stack {
         "GET /guidegroups": {
           function: {
             srcPath: "src/guidegroups/",
-            handler: "getGuidegroupList.main",
+            handler: "getGuidegroups.main",
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
@@ -50,6 +50,13 @@ export default class ApiStack extends sst.Stack {
           },
         },
         // Languages
+        "GET /languages": {
+          function: {
+            srcPath: "src/languages",
+            handler: "getLanguages.main",
+            environment: { tableName: languagesTable.tableName },
+          }
+        },
         "POST /languages": {
           function: {
             srcPath: "src/languages",
