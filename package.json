@@ -7,10 +7,15 @@
     "start": "sst start",
     "build": "sst build",
     "deploy": "sst deploy",
-    "remove": "sst remove"
+    "remove": "sst remove",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.126.0"
+    "@aws-cdk/assert": "1.126.0",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2"
   },
   "dependencies": {
     "@aws-cdk/core": "1.126.0",
