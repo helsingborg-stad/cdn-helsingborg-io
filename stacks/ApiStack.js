@@ -39,14 +39,14 @@ export default class ApiStack extends sst.Stack {
         'GET /guidegroups': {
           function: {
             srcPath: 'src/guidegroups/',
-            handler: 'getGuidegroups.main',
+            handler: 'getGuideGroups.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
         'POST /guidegroups': {
           function: {
             srcPath: 'src/guidegroups/',
-            handler: 'createGuidegroup.main',
+            handler: 'createGuideGroup.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
