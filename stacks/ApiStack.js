@@ -1,16 +1,16 @@
-import * as sst from "@serverless-stack/resources"
+import * as sst from '@serverless-stack/resources';
 
 export default class ApiStack extends sst.Stack {
   // Public ref to the API
   api;
 
-  constructor (scope, id, props) {
-    super(scope, id, props)
+  constructor(scope, id, props) {
+    super(scope, id, props);
 
     const { navigationsTable, guidegroupsTable, languagesTable, guidesTable } = props;
 
     // Create the API
-    this.api = new sst.ApiGatewayV1Api(this, "Api", {
+    this.api = new sst.ApiGatewayV1Api(this, 'Api', {
       defaultFunctionProps: {
         environment: {
           NAVIGATIONS_TABLE_NAME: navigationsTable.tableName,
@@ -21,74 +21,74 @@ export default class ApiStack extends sst.Stack {
       },
       routes: {
         // Navigations
-        "GET /navigations": {
+        'GET /navigations': {
           function: {
-            srcPath: "src/navigations/",
-            handler: "getNavigations.main",
+            srcPath: 'src/navigations/',
+            handler: 'getNavigations.main',
             environment: { tableName: navigationsTable.tableName },
           },
         },
-        "POST /navigations": {
+        'POST /navigations': {
           function: {
-            srcPath: "src/navigations/",
-            handler: "createNavigation.main",
+            srcPath: 'src/navigations/',
+            handler: 'createNavigation.main',
             environment: { tableName: navigationsTable.tableName },
           },
         },
         // Guidegroups
-        "GET /guidegroups": {
+        'GET /guidegroups': {
           function: {
-            srcPath: "src/guidegroups/",
-            handler: "getGuidegroups.main",
+            srcPath: 'src/guidegroups/',
+            handler: 'getGuidegroups.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
-        "POST /guidegroups": {
+        'POST /guidegroups': {
           function: {
-            srcPath: "src/guidegroups/",
-            handler: "createGuidegroup.main",
+            srcPath: 'src/guidegroups/',
+            handler: 'createGuidegroup.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
         // Languages
-        "GET /languages": {
+        'GET /languages': {
           function: {
-            srcPath: "src/languages",
-            handler: "getLanguages.main",
+            srcPath: 'src/languages',
+            handler: 'getLanguages.main',
             environment: { tableName: languagesTable.tableName },
-          }
+          },
         },
-        "POST /languages": {
+        'POST /languages': {
           function: {
-            srcPath: "src/languages",
-            handler: "createLanguages.main",
+            srcPath: 'src/languages',
+            handler: 'createLanguages.main',
             environment: { tableName: languagesTable.tableName },
-          }
+          },
         },
         // Guides
-        "GET /guides": {
+        'GET /guides': {
           function: {
-            srcPath: "src/guides",
-            handler: "getGuides.main",
+            srcPath: 'src/guides',
+            handler: 'getGuides.main',
             environment: { tableName: guidesTable.tableName },
-          }
+          },
         },
-        "POST /guides": {
+        'POST /guides': {
           function: {
-            srcPath: "src/guides",
-            handler: "createGuides.main",
+            srcPath: 'src/guides',
+            handler: 'createGuides.main',
             environment: { tableName: guidesTable.tableName },
-          }
-        }
-      }
+          },
+        },
+      },
     });
 
     // Allow the API to access the table
-    this.api.attachPermissions([navigationsTable, guidegroupsTable, languagesTable, guidesTable])
+    this.api.attachPermissions([navigationsTable, guidegroupsTable, languagesTable, guidesTable]);
 
     // Show the API endpoint in the output
     this.addOutputs({
-      ApiEndpoint: this.api.url
+      ApiEndpoint: this.api.url,
     });
   }
 }

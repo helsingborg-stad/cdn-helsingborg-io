@@ -1,7 +1,7 @@
-import handler from "../util/handler";
-import dynamoDb from "../util/dynamodb";
+import handler from '../util/handler';
+import dynamoDb from '../util/dynamodb';
 
-export const main = handler(async (event) => {
+export const main = handler(async event => {
   const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.GUIDES_TABLE_NAME,

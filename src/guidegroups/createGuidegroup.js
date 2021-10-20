@@ -1,7 +1,7 @@
-import handler from "../util/handler";
-import dynamoDb from "../util/dynamodb";
+import handler from '../util/handler';
+import dynamoDb from '../util/dynamodb';
 
-export const main = handler(async (event) => {
+export const main = handler(async event => {
   const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
@@ -15,7 +15,7 @@ export const main = handler(async (event) => {
       settings: data.settings,
       notice: data.notice,
       lang: data.lang,
-      translations: data.translations
+      translations: data.translations,
     },
   };
 
