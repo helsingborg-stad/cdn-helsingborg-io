@@ -1,6 +1,6 @@
-import AWS from "aws-sdk"
+import AWS from 'aws-sdk';
 
-const dynamoDb = new AWS.DynamoDB.DocumentClient()
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 export async function main(event) {
   // Request body is passed as a JSON encoded string in 'event.body'
@@ -8,23 +8,23 @@ export async function main(event) {
 
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
-      Item: {
-        id: data.id,
-        count: data.count,
-        description: data.description,
-        link: data.link,
-        name: data.name,
-        slug: data.slug,
-        taxonomy: data.taxonomy,
-        meta: data.meta,
-        layout: data.layout,
-        object_list: data.object_list,
-        user_groups: data.user_groups,
-        lang: data.lang,
-        translations: data.translations,
-        // TODO: Remove items later (old middleware)
-        items: data.items
-      },
+    Item: {
+      id: data.id,
+      count: data.count,
+      description: data.description,
+      link: data.link,
+      name: data.name,
+      slug: data.slug,
+      taxonomy: data.taxonomy,
+      meta: data.meta,
+      layout: data.layout,
+      object_list: data.object_list,
+      user_groups: data.user_groups,
+      lang: data.lang,
+      translations: data.translations,
+      // TODO: Remove items later (old middleware)
+      items: data.items,
+    },
   };
 
   try {

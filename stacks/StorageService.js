@@ -1,4 +1,4 @@
-import * as sst from "@serverless-stack/resources"
+import * as sst from '@serverless-stack/resources';
 
 export default class StorageStack extends sst.Stack {
   navigationsTable;
@@ -6,35 +6,35 @@ export default class StorageStack extends sst.Stack {
   languagesTable;
   guidesTable;
 
-  constructor (scope, id, props) {
-    super(scope, id, props)
+  constructor(scope, id, props) {
+    super(scope, id, props);
 
-    this.navigationsTable = new sst.Table(this, "Navigations", {
+    this.navigationsTable = new sst.Table(this, 'Navigations', {
       fields: {
         id: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: "id"},
+      primaryIndex: { partitionKey: 'id' },
     });
 
-    this.guidegroupsTable = new sst.Table(this, "Guidegroups", {
+    this.guidegroupsTable = new sst.Table(this, 'Guidegroups', {
       fields: {
         id: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: "id" },
+      primaryIndex: { partitionKey: 'id' },
     });
 
-    this.languagesTable = new sst.Table(this, "Languages", {
+    this.languagesTable = new sst.Table(this, 'Languages', {
       fields: {
         term_id: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: "term_id" },
-    })
+      primaryIndex: { partitionKey: 'term_id' },
+    });
 
-    this.guidesTable = new sst.Table(this, "Guides", {
+    this.guidesTable = new sst.Table(this, 'Guides', {
       fields: {
         id: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: "id" },
-    })
+      primaryIndex: { partitionKey: 'id' },
+    });
   }
 }

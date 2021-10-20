@@ -1,7 +1,7 @@
-import handler from "../util/handler";
+import handler from '../util/handler';
 import dynamodb from '../util/dynamodb';
 
-export const main = handler(async (event) => {
+export const main = handler(async event => {
   const data = JSON.parse(event.body);
 
   const params = {
@@ -35,4 +35,4 @@ export const main = handler(async (event) => {
   await dynamodb.put(params);
 
   return params.Item;
-})
+});
