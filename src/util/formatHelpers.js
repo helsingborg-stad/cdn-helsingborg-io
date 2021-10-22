@@ -106,6 +106,7 @@ export const parseGuideGroup = item => {
     settings,
     _embedded,
     count,
+    pointProperties,
   } = item;
 
   const images = parseImages(sizes);
@@ -121,7 +122,7 @@ export const parseGuideGroup = item => {
     name,
     slug,
     guidesCount: count,
-    pointProperties: null, // TODO: Get point properties from WP api
+    pointProperties: pointProperties ?? [],
   };
 
   return guideGroup;
