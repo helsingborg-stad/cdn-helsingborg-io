@@ -34,6 +34,25 @@ const parseOpeningHour = item => {
   return openHour;
 };
 
+const parseProperty = item => {
+  const property = {
+    id: item.id,
+    name: item.name,
+    slug: item.slug,
+  };
+
+  if (item.icon !== null) {
+    try {
+      property.icon = new URL(item.icon).toString();
+    } catch (e) {
+      // not a well formatted url, discarding
+      console.warning('Not a well formatted url', e);
+    }
+  }
+
+  return property;
+};
+
 const parseLocation = item => {
   const {
     id,
@@ -106,12 +125,24 @@ export const parseGuideGroup = item => {
     settings,
     _embedded,
     count,
-    pointProperties,
   } = item;
 
   const images = parseImages(sizes);
   const locationArray = _embedded.location;
   const location = parseLocation(locationArray[0]);
+  const { property: propertiesInput } = locationArray[0];
+
+  const properties = [];
+  if (propertiesInput) {
+    propertiesInput.forEach(property => {
+      try {
+        const parsedProperty = parseProperty(property);
+        properties.push(parsedProperty);
+      } catch (error) {
+        console.error('Failed to parse property, discarding.', error);
+      }
+    });
+  }
 
   const guideGroup = {
     active: settings.active,
@@ -122,7 +153,7 @@ export const parseGuideGroup = item => {
     name,
     slug,
     guidesCount: count,
-    pointProperties: pointProperties ?? [],
+    pointProperties: properties,
   };
 
   return guideGroup;
