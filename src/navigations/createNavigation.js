@@ -10,20 +10,10 @@ export async function main(event) {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
     Item: {
       id: data.id,
-      count: data.count,
       description: data.description,
-      link: data.link,
+      items: data.items,
       name: data.name,
       slug: data.slug,
-      taxonomy: data.taxonomy,
-      meta: data.meta,
-      layout: data.layout,
-      object_list: data.object_list,
-      user_groups: data.user_groups,
-      lang: data.lang,
-      translations: data.translations,
-      // TODO: Remove items later (old middleware)
-      items: data.items,
     },
   };
 
