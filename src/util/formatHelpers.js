@@ -125,6 +125,7 @@ export const parseGuideGroup = item => {
     settings,
     _embedded,
     count,
+    lang,
   } = item;
 
   const images = parseImages(sizes);
@@ -145,14 +146,15 @@ export const parseGuideGroup = item => {
   }
 
   const guideGroup = {
-    active: settings.active,
-    description,
     id,
-    images,
-    location,
     name,
     slug,
+    description,
+    lang,
     guidesCount: count,
+    active: settings.active,
+    images,
+    location,
     pointProperties: properties,
   };
 
