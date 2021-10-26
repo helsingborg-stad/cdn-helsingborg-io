@@ -27,7 +27,7 @@ const parseOpeningHour = item => {
   const openHour = {
     closed,
     closing,
-    dayNumber,
+    dayNumber: Number(dayNumber),
     opening,
     weekday,
   };
@@ -66,10 +66,10 @@ const parseLocation = item => {
   } = item;
 
   const location = {
-    id,
-    latitude,
+    id: Number(id),
+    latitude: Number(latitude),
     links,
-    longitude,
+    longitude: Number(longitude),
     streetAddress,
     title,
   };
