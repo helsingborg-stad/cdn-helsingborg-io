@@ -6,7 +6,11 @@ export const main = handler(async event => {
   const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
-    Item: parseGuideGroup(data),
+    Item: {
+      ...parseGuideGroup(data),
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    },
   };
 
   await dynamoDb.put(params);
