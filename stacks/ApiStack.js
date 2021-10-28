@@ -57,6 +57,13 @@ export default class ApiStack extends sst.Stack {
             environment: { tableName: guidegroupsTable.tableName },
           },
         },
+        'PUT /guidegroups/{id}': {
+          function: {
+            srcPath: 'src/guidegroups/',
+            handler: 'updateGuideGroup.main',
+            environment: { tableName: guidegroupsTable.tableName },
+          },
+        },
         // Languages
         'GET /languages': {
           function: {
