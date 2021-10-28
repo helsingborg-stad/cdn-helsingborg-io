@@ -126,7 +126,7 @@ export const parseGuideGroup = item => {
     _embedded,
     count,
     lang,
-    user_group: userGroup,
+    user_group: groupId,
   } = item;
 
   const images = parseImages(sizes);
@@ -151,7 +151,7 @@ export const parseGuideGroup = item => {
     name,
     slug,
     description,
-    userGroup,
+    groupId,
     lang,
     guidesCount: count,
     active: settings.active,
