@@ -11,7 +11,7 @@ export async function main(event) {
     Item: {
       id: data.id,
       description: data.description,
-      items: data.items,
+      items: data.object_list,
       name: data.name,
       slug: data.slug,
     },
