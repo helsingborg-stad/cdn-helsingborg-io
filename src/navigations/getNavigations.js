@@ -9,14 +9,14 @@ export const main = handler(async event => {
   const ExpressionAttributeValues = {};
   const ExpressionAttributeNames = {};
 
-  // Return whole table if no query parameters found.
+  // Return all fields if no query parameters found.
   if (typeof queryCity == 'undefined' && typeof queryLanguage == 'undefined') {
     const result = await dynamoDb.scan(params);
 
     return result.Items;
   }
 
-  // Filter by Global Secondary Index guideLanguage if only language queried.
+  // Filter by Global Secondary Index 'guideLanguage' if only language queried.
   if (typeof queryCity == 'undefined' && typeof queryLanguage != 'undefined') {
     params['IndexName'] = 'guideLanguage';
     KeyConditionExpression += '#language = :queryLanguage';
@@ -24,14 +24,14 @@ export const main = handler(async event => {
     ExpressionAttributeNames['#language'] = 'language';
   }
 
-  // DynamoDB parameters if only city queried.
+  // DynamoDB parameters if city queried.
   if (typeof queryCity != 'undefined') {
     KeyConditionExpression += '#city = :queryCity ';
     ExpressionAttributeValues[':queryCity'] = parseInt(queryCity);
     ExpressionAttributeNames['#city'] = 'city';
   }
 
-  // DynamoDB language parameters if city AND language queried.
+  // Append language to city parameters if city AND language queried.
   if (typeof queryCity != 'undefined' && typeof queryLanguage != 'undefined') {
     KeyConditionExpression += ' AND begins_with(#language_recordUid, :queryLanguage)';
     ExpressionAttributeValues[':queryLanguage'] = queryLanguage;
