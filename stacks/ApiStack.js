@@ -35,6 +35,13 @@ export default class ApiStack extends sst.Stack {
             environment: { tableName: navigationsTable.tableName },
           },
         },
+        'DELETE /navigations/{city}/{language}/{id}': {
+          function: {
+            srcPath: 'src/navigations/',
+            handler: 'deleteNavigation.main',
+            environment: { tableName: navigationsTable.tableName },
+          },
+        },
         // Guidegroups
         'GET /guidegroups': {
           function: {
