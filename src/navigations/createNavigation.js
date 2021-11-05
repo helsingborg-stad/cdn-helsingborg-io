@@ -9,9 +9,12 @@ export async function main(event) {
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
     Item: {
+      city: data.user_groups.id,
+      language_recordUid: `${data.lang}#${data.id}`,
+      language: data.lang,
       id: data.id,
       description: data.description,
-      items: data.items,
+      items: data.object_list,
       name: data.name,
       slug: data.slug,
     },

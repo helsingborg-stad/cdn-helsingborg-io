@@ -11,9 +11,11 @@ export default class StorageStack extends sst.Stack {
 
     this.navigationsTable = new sst.Table(this, 'Navigations', {
       fields: {
-        id: sst.TableFieldType.NUMBER,
+        city: sst.TableFieldType.NUMBER,
+        language_recordUid: sst.TableFieldType.STRING,
       },
-      primaryIndex: { partitionKey: 'id' },
+      primaryIndex: { partitionKey: 'city', sortKey: 'language_recordUid' },
+      globalIndexes: { guideLanguage: { partitionKey: 'language' } },
     });
 
     this.guidegroupsTable = new sst.Table(this, 'Guidegroups', {
