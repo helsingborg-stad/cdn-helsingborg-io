@@ -27,7 +27,7 @@ export const main = handler(async event => {
   // DynamoDB parameters if city queried.
   if (typeof queryCity != 'undefined') {
     KeyConditionExpression += '#city = :queryCity ';
-    ExpressionAttributeValues[':queryCity'] = parseInt(queryCity);
+    ExpressionAttributeValues[':queryCity'] = parseInt(queryCity, 10);
     ExpressionAttributeNames['#city'] = 'city';
   }
 
