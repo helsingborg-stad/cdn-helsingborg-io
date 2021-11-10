@@ -37,6 +37,8 @@ export const main = handler(async event => {
       orphan_content_objects: data.orphan_content_objects,
       lang: data.lang,
       translations: data.translations,
+      _links: data._links,
+      _embedded: data._embedded,
     },
   };
 
