@@ -28,9 +28,9 @@ export default class StorageStack extends sst.Stack {
 
     this.languagesTable = new sst.Table(this, 'Languages', {
       fields: {
-        term_id: sst.TableFieldType.NUMBER,
+        id: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: 'term_id' },
+      primaryIndex: { partitionKey: 'id' },
     });
 
     this.guidesTable = new sst.Table(this, 'Guides', {
