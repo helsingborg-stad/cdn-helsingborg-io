@@ -86,6 +86,13 @@ export default class ApiStack extends sst.Stack {
             environment: { tableName: languagesTable.tableName },
           },
         },
+        'DELETE /languages/{id}': {
+          function: {
+            srcPath: 'src/languages/',
+            handler: 'deleteLanguage.main',
+            environment: { tableName: languagesTable.tableName },
+          },
+        },
         // Guides
         'GET /guides': {
           function: {
