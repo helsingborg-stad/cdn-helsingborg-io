@@ -23,7 +23,7 @@ export default class StorageStack extends sst.Stack {
         id: sst.TableFieldType.NUMBER,
         groupId: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: 'groupId', sortKey: 'id' },
+      primaryIndex: { partitionKey: 'id' },
     });
 
     this.languagesTable = new sst.Table(this, 'Languages', {

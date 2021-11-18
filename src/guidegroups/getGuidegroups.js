@@ -6,9 +6,9 @@ export const main = handler(async event => {
 
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
-    KeyConditionExpression: 'groupId = :groupId',
-    FilterExpression: '#lang = :lang',
+    FilterExpression: '#lang = :lang AND #groupId = :groupId',
     ExpressionAttributeNames: {
+      '#groupId': 'groupId',
       '#lang': 'lang',
     },
     ExpressionAttributeValues: {
@@ -17,7 +17,7 @@ export const main = handler(async event => {
     },
   };
 
-  const result = await dynamoDb.query(params);
+  const result = await dynamoDb.scan(params);
   let { Items: items } = result;
 
   if (include) {

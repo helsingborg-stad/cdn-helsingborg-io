@@ -10,7 +10,6 @@ export const main = handler(async event => {
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
     Key: {
-      groupId: parsedData.groupId,
       id: parseInt(event.pathParameters.id, 10),
     },
     UpdateExpression:
