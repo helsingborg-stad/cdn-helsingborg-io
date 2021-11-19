@@ -14,8 +14,6 @@ export const main = handler(async event => {
     },
   };
 
-  console.log('delete params', params);
-
   await dynamoDb.delete(params);
 
   return { body: { status: true } };
