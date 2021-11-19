@@ -2,13 +2,12 @@ import handler from '../util/handler';
 import dynamoDb from '../util/dynamodb';
 
 export const main = handler(async event => {
-  const { lang: queryLanguage, include: queryInclude } = event.queryStringParameters ?? {};
+  const { include: queryInclude } = event.queryStringParameters ?? {};
 
   const parameterKeys = [];
 
   queryInclude.split(',').map(includeIds => {
     parameterKeys.push({
-      language: queryLanguage,
       id: parseInt(includeIds, 10),
     });
   });
