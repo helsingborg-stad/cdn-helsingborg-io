@@ -6,8 +6,6 @@ export const main = handler(async event => {
   const { language: pathParamLanguage } = event.pathParameters;
   const { id: pathParamId } = event.pathParameters;
 
-  console.log(`city ${pathParamCity}, lang ${pathParamLanguage}, id ${pathParamId}`);
-
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
     Key: {
