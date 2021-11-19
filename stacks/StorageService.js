@@ -34,10 +34,9 @@ export default class StorageStack extends sst.Stack {
 
     this.guidesTable = new sst.Table(this, 'Guides', {
       fields: {
-        language: sst.TableFieldType.STRING,
         id: sst.TableFieldType.NUMBER,
       },
-      primaryIndex: { partitionKey: 'language', sortKey: 'id' },
+      primaryIndex: { partitionKey: 'id' },
     });
   }
 }
