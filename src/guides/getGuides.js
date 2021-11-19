@@ -22,5 +22,7 @@ export const main = handler(async event => {
 
   const result = await dynamoDb.batchGet(params);
 
+  // TODO: Handling for unprocessed keys.
+
   return result.Responses[process.env.GUIDES_TABLE_NAME];
 });
