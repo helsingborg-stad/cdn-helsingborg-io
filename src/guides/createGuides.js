@@ -42,6 +42,9 @@ export const main = handler(async event => {
     },
   };
 
+  // Add global index guideGroupId.
+  params.Item['dynamoDbGlobalIndexGuideGroupId'] = data.guidegroup[0].id.toString(10);
+
   await dynamoDb.put(params);
 
   return params.Item;
