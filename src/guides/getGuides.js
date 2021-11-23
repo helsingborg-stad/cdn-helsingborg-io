@@ -6,17 +6,17 @@ export const main = handler(async event => {
     event.queryStringParameters ?? {};
 
   if (typeof queryGuideGroupId !== 'undefined' && typeof queryInclude == 'undefined') {
-    const params = { TableName: process.env.GUIDES_TABLE_NAME };
+    const params = {
+      TableName: process.env.GUIDES_TABLE_NAME,
+      IndexName: 'guideGroupIdIndex',
+      KeyConditionExpression: '#dynamoDbGlobalIndexGuideGroupId = :dynamoDbGlobalIndexGuideGroupId',
+      ExpressionAttributeValues: { ':dynamoDbGlobalIndexGuideGroupId': queryGuideGroupId },
+      ExpressionAttributeNames: {
+        '#dynamoDbGlobalIndexGuideGroupId': 'dynamoDbGlobalIndexGuideGroupId',
+      },
+    };
 
-    const allGuides = await dynamoDb.scan(params);
-
-    if (allGuides.Items.length < 1) {
-      return [];
-    }
-
-    return allGuides.Items.filter(
-      item => item.guidegroup[0]['id'] === parseInt(queryGuideGroupId, 10)
-    );
+    return (await dynamoDb.query(params)).Items;
   }
 
   if (typeof queryInclude !== 'undefined' && typeof queryGuideGroupId === 'undefined') {
@@ -41,5 +41,6 @@ export const main = handler(async event => {
     return result.Responses[process.env.GUIDES_TABLE_NAME];
   }
 
+  // Return empty array if no event query parameters found.
   return [];
 });
