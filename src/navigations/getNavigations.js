@@ -2,7 +2,7 @@ import handler from '../util/handler';
 import dynamoDb from '../util/dynamodb';
 
 export const main = handler(async event => {
-  const { userGroupID: queryCity, lang: queryLanguage } = event.queryStringParameters ?? {};
+  const { userGroupId: queryCity, lang: queryLanguage } = event.queryStringParameters ?? {};
 
   let params = { TableName: process.env.NAVIGATIONS_TABLE_NAME };
   let KeyConditionExpression = '';
