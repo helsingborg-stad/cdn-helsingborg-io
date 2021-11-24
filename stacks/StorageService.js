@@ -38,6 +38,7 @@ export default class StorageStack extends sst.Stack {
         id: sst.TableFieldType.NUMBER,
       },
       primaryIndex: { partitionKey: 'id' },
+      globalIndexes: { guideGroupIdIndex: { partitionKey: 'dynamoDbGlobalIndexGuideGroupId' } },
     });
   }
 }
