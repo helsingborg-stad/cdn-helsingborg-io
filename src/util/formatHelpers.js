@@ -81,7 +81,7 @@ const parseLocation = item => {
         const parsedOh = parseOpeningHour(openHour);
         openHours.push(parsedOh);
       } catch (err) {
-        console.error('Failed to parse opening hours, discarding.', err);
+        console.warning('Failed to parse opening hours, discarding.', err);
       }
     });
   }
@@ -101,7 +101,7 @@ const parseLocation = item => {
         openingHourExceptions.push(exc);
       } catch (error) {
         // discarding exception
-        console.error('Error parsing opening hour exception from: ' + element);
+        console.warning('Error parsing opening hour exception from: ' + element);
       }
     });
 
@@ -141,7 +141,7 @@ export const parseGuideGroup = item => {
         const parsedProperty = parseProperty(property);
         properties.push(parsedProperty);
       } catch (error) {
-        console.error('Failed to parse property, discarding.', error);
+        console.warning('Failed to parse property, discarding.', error);
       }
     });
   }
@@ -181,7 +181,7 @@ function parseImageUrls(data) {
     }
   } catch (error) {
     // something went wrong
-    console.error('Failed to parse images data: ', data);
+    console.warning('Failed to parse images data: ', data);
   }
   return images;
 }
@@ -252,7 +252,6 @@ const parseLinks = data => {
 
 const parseContentObject = (key, data, subAttractions, locations) => {
   if (typeof data.order !== 'number') {
-    console.log('parseContentObject error. bail');
     throw new Error('Failed to parse order from ' + data);
   }
 
@@ -286,10 +285,11 @@ const parseContentObject = (key, data, subAttractions, locations) => {
 
   try {
     const parsedSubAttraction = parseSubAttraction(obj.id, subAttractions, locations);
-    console.log('parsedSubAttraction', parsedSubAttraction);
-    obj.location = parsedSubAttraction;
+    if (parsedSubAttraction) {
+      obj.location = parsedSubAttraction;
+    }
   } catch (error) {
-    // ignoring subAttractions from this guide
+    // ignoring subAttraction from this guide
   }
 
   return obj;
@@ -313,7 +313,7 @@ const parseContentObjects = (contentData, subAttractionsData, locationsData) => 
       const obj = parseContentObject(key, contentData[key], subAttractions, locations);
       result.push(obj);
     } catch (error) {
-      console.error('Failed to parse content object, discarding.');
+      console.warning('Failed to parse content object, discarding.');
     }
   }
 
