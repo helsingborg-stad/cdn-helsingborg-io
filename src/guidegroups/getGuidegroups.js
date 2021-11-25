@@ -2,17 +2,15 @@ import handler from '../util/handler';
 import dynamoDb from '../util/dynamodb';
 
 export const main = handler(async event => {
-  const { groupId, lang, include } = event.queryStringParameters ?? {};
+  const { lang, include } = event.queryStringParameters ?? {};
 
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
-    FilterExpression: '#lang = :lang AND #groupId = :groupId',
+    FilterExpression: '#lang = :lang',
     ExpressionAttributeNames: {
-      '#groupId': 'groupId',
       '#lang': 'lang',
     },
     ExpressionAttributeValues: {
-      ':groupId': parseInt(groupId, 10),
       ':lang': lang,
     },
   };
