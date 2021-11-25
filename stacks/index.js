@@ -14,5 +14,6 @@ export default function main(app) {
     guidegroupsTable: storageStack.guidegroupsTable,
     languagesTable: storageStack.languagesTable,
     guidesTable: storageStack.guidesTable,
+    interactiveGuidesTable: storageStack.interactiveGuidesTable,
   });
 }
