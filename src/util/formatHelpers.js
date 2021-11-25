@@ -403,8 +403,6 @@ const parseInteractiveGuideFinish = finishStep => {
 const parseInteractiveGuideImage = image => {
   const { id, url, width, height } = image;
 
-  console.log(`parsing image id ${id}, height ${height}, width ${width}`);
-
   return {
     id,
     url,
