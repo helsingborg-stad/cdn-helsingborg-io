@@ -123,6 +123,13 @@ export default class ApiStack extends sst.Stack {
           },
         },
         // Interactive guides
+        'GET /interactive_guides': {
+          function: {
+            srcPath: 'src/interactiveGuides',
+            handler: 'getInteractiveGuides.main',
+            environment: { tableName: interactiveGuidesTable.tableName },
+          },
+        },
         'POST /interactive_guides': {
           function: {
             srcPath: 'src/interactiveGuides/',
