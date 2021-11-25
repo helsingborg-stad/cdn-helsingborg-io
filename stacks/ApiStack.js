@@ -130,6 +130,13 @@ export default class ApiStack extends sst.Stack {
             environment: { tableName: interactiveGuidesTable.tableName },
           },
         },
+        'DELETE /interactive_guides/{id}': {
+          function: {
+            srcPath: 'src/interactiveGuides/',
+            handler: 'deleteInteractiveGuides.main',
+            environment: { tableName: interactiveGuidesTable.tableName },
+          },
+        },
       },
     });
 
