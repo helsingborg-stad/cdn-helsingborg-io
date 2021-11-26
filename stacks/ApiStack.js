@@ -7,7 +7,13 @@ export default class ApiStack extends sst.Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    const { navigationsTable, guidegroupsTable, languagesTable, guidesTable } = props;
+    const {
+      navigationsTable,
+      guidegroupsTable,
+      languagesTable,
+      guidesTable,
+      interactiveGuidesTable,
+    } = props;
 
     // Create the API
     this.api = new sst.ApiGatewayV1Api(this, 'Api', {
@@ -17,6 +23,7 @@ export default class ApiStack extends sst.Stack {
           GUIDEGROUPS_TABLE_NAME: guidegroupsTable.tableName,
           GUIDES_TABLE_NAME: guidesTable.tableName,
           LANGUAGES_TABLE_NAME: languagesTable.tableName,
+          INTERACTIVE_GUIDES_TABLE_NAME: interactiveGuidesTable.tableName,
         },
       },
       routes: {
@@ -115,11 +122,39 @@ export default class ApiStack extends sst.Stack {
             environment: { tableName: guidesTable.tableName },
           },
         },
+        // Interactive guides
+        'GET /interactive_guides': {
+          function: {
+            srcPath: 'src/interactiveGuides',
+            handler: 'getInteractiveGuides.main',
+            environment: { tableName: interactiveGuidesTable.tableName },
+          },
+        },
+        'POST /interactive_guides': {
+          function: {
+            srcPath: 'src/interactiveGuides/',
+            handler: 'createInteractiveGuides.main',
+            environment: { tableName: interactiveGuidesTable.tableName },
+          },
+        },
+        'DELETE /interactive_guides/{id}': {
+          function: {
+            srcPath: 'src/interactiveGuides/',
+            handler: 'deleteInteractiveGuides.main',
+            environment: { tableName: interactiveGuidesTable.tableName },
+          },
+        },
       },
     });
 
     // Allow the API to access the table
-    this.api.attachPermissions([navigationsTable, guidegroupsTable, languagesTable, guidesTable]);
+    this.api.attachPermissions([
+      navigationsTable,
+      guidegroupsTable,
+      languagesTable,
+      guidesTable,
+      interactiveGuidesTable,
+    ]);
 
     // Show the API endpoint in the output
     this.addOutputs({

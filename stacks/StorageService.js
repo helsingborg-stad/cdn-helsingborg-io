@@ -5,6 +5,7 @@ export default class StorageStack extends sst.Stack {
   guidegroupsTable;
   languagesTable;
   guidesTable;
+  interactiveGuidesTable;
 
   constructor(scope, id, props) {
     super(scope, id, props);
@@ -39,6 +40,13 @@ export default class StorageStack extends sst.Stack {
       },
       primaryIndex: { partitionKey: 'id' },
       globalIndexes: { guideGroupIdIndex: { partitionKey: 'dynamoDbGlobalIndexGuideGroupId' } },
+    });
+
+    this.interactiveGuidesTable = new sst.Table(this, 'InteractiveGuides', {
+      fields: {
+        id: sst.TableFieldType.NUMBER,
+      },
+      primaryIndex: { partitionKey: 'id' },
     });
   }
 }

@@ -371,3 +371,114 @@ export const parseGuide = item => {
 
   return guide;
 };
+
+const parseInteractiveGuideFinish = finishStep => {
+  if (!finishStep) {
+    return null;
+  }
+
+  const {
+    header_title: header,
+    content_area_title: title,
+    content_area_text: body,
+    display_share_result: displayShare,
+    share_title: shareTitle,
+    share_image: shareImage,
+    images,
+  } = finishStep;
+
+  return {
+    header,
+    title,
+    body,
+    displayShare,
+    shareTitle,
+    shareImage: shareImage ? parseInteractiveGuideImage(shareImage) : null,
+    images: images ? images.map(img => parseInteractiveGuideImage(img.image)) : [],
+  };
+};
+
+const parseInteractiveGuideImage = image => {
+  const { id, url, width, height } = image;
+
+  return {
+    id,
+    url,
+    aspectRatio: parseInt(width) / parseInt(height),
+  };
+};
+
+const parseInteractiveGuideSteps = steps => {
+  const parseStartStep = (step, index) => {
+    const { type, start_guide_title: title, introduction_text: text, image } = step;
+
+    return {
+      id: `${type}${index}`,
+      type,
+      title,
+      text,
+      image: image ? parseInteractiveGuideImage(image) : null,
+    };
+  };
+
+  const parseImageStep = (step, index) => {
+    const { type, image } = step;
+
+    if (!image) {
+      return null;
+    }
+
+    return {
+      id: `${type}${index}`,
+      type,
+      image: parseInteractiveGuideImage(image),
+    };
+  };
+
+  const parseDialogStep = (step, index) => ({
+    ...step,
+    id: `${step.type}${index}`,
+    alternatives: step.alternatives.map((alt, index) => ({
+      ...alt,
+      id: index,
+    })),
+  });
+
+  return steps
+    .map((step, index) => {
+      if (step.type === 'start') {
+        return parseStartStep(step, index);
+      }
+
+      if (step.type === 'image') {
+        return parseImageStep(step, index);
+      }
+
+      if (step.type === 'dialog') {
+        return parseDialogStep(step, index);
+      }
+
+      if (!step.id) {
+        return {
+          ...step,
+          id: `${step.type}${index}`,
+        };
+      }
+
+      return step;
+    })
+    .filter(step => step);
+};
+
+export const parseInteractiveGuide = data => {
+  const interactiveGuide = {
+    id: data.id,
+    title: data.title.rendered,
+    guideGroupId: data.guidegroup[0].id,
+    image: data?.featured_media?.source_url ? data.featured_media.source_url : null,
+    steps: parseInteractiveGuideSteps(data.steps.filter(step => step.type !== 'finish')),
+    finish: parseInteractiveGuideFinish(data.steps.find(step => step.type === 'finish')),
+  };
+
+  return interactiveGuide;
+};
