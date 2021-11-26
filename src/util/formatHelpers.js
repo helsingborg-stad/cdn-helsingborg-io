@@ -387,15 +387,13 @@ const parseInteractiveGuideFinish = finishStep => {
     images,
   } = finishStep;
 
-  console.log('shared img', shareImage);
-
   return {
     header,
     title,
     body,
     displayShare,
     shareTitle,
-    shareImage: parseInteractiveGuideImage(shareImage),
+    shareImage: shareImage ? parseInteractiveGuideImage(shareImage) : null,
     images: images ? images.map(img => parseInteractiveGuideImage(img.image)) : [],
   };
 };
@@ -419,7 +417,7 @@ const parseInteractiveGuideSteps = steps => {
       type,
       title,
       text,
-      image: parseInteractiveGuideImage(image),
+      image: image ? parseInteractiveGuideImage(image) : null,
     };
   };
 
@@ -477,7 +475,7 @@ export const parseInteractiveGuide = data => {
     id: data.id,
     title: data.title.rendered,
     guideGroupId: data.guidegroup[0].id,
-    image: data.featured_media.source_url,
+    image: data?.featured_media?.source_url ? data.featured_media.source_url : null,
     steps: parseInteractiveGuideSteps(data.steps.filter(step => step.type !== 'finish')),
     finish: parseInteractiveGuideFinish(data.steps.find(step => step.type === 'finish')),
   };
