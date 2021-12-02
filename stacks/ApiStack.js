@@ -27,9 +27,6 @@ export default class ApiStack extends sst.Stack {
           INTERACTIVE_GUIDES_TABLE_NAME: interactiveGuidesTable.tableName,
         },
       },
-      restApi: {
-        apiKeySourceType: 'HEADER',
-      },
       routes: {
         // Navigations
         'GET /navigations': {
