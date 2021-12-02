@@ -39,7 +39,7 @@ export default class ApiStack extends sst.Stack {
         'POST /navigations': {
           function: {
             srcPath: 'src/navigations/',
-            handler: 'createNavigation.main',
+            handler: 'createNavigation.handler',
             environment: { tableName: navigationsTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },

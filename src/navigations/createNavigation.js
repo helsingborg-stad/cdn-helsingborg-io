@@ -1,10 +1,18 @@
 import AWS from 'aws-sdk';
-
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-export async function main(event) {
+import middy from '@middy/core';
+import validator from '@middy/validator';
+import httpErrorHandler from '@middy/http-error-handler';
+import jsonBodyParser from '@middy/http-json-body-parser';
+import Ajv from 'ajv';
+
+const ajv = new Ajv();
+
+const baseHandler = async event => {
   // Request body is passed as a JSON encoded string in 'event.body'
-  const data = JSON.parse(event.body);
+  // const data = JSON.parse(event.body);
+  const data = event.body;
 
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
@@ -33,4 +41,30 @@ export async function main(event) {
       body: JSON.stringify({ error: e.message }),
     };
   }
-}
+};
+
+const inputSchema = {
+  type: 'object',
+  properties: {
+    body: {
+      type: 'object',
+      properties: {
+        id: { type: 'number' },
+        user_groups: { type: 'object' },
+        lang: { type: 'string' },
+      },
+      required: ['id', 'user_groups', 'lang'],
+    },
+  },
+};
+
+const handler = middy(baseHandler)
+  .use(jsonBodyParser())
+  .use(
+    validator({
+      inputSchema: ajv.compile(inputSchema),
+    })
+  )
+  .use(httpErrorHandler());
+
+export { handler };
