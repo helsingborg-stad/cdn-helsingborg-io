@@ -50,6 +50,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'deleteNavigation.main',
             environment: { tableName: navigationsTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         // Guidegroups
         'GET /guidegroups': {
@@ -65,6 +66,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'createGuideGroup.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         'DELETE /guidegroups/{id}': {
           function: {
@@ -72,6 +74,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'deleteGuideGroup.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         'PUT /guidegroups/{id}': {
           function: {
@@ -79,6 +82,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'updateGuideGroup.main',
             environment: { tableName: guidegroupsTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         // Languages
         'GET /languages': {
@@ -94,6 +98,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'createLanguages.main',
             environment: { tableName: languagesTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         'DELETE /languages/{id}': {
           function: {
@@ -101,6 +106,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'deleteLanguage.main',
             environment: { tableName: languagesTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         // Guides
         'GET /guides': {
@@ -116,6 +122,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'createGuides.main',
             environment: { tableName: guidesTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         'DELETE /guides/{id}': {
           function: {
@@ -123,6 +130,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'deleteGuide.main',
             environment: { tableName: guidesTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         // Interactive guides
         'GET /interactive_guides': {
@@ -138,6 +146,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'createInteractiveGuides.main',
             environment: { tableName: interactiveGuidesTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         'DELETE /interactive_guides/{id}': {
           function: {
@@ -145,6 +154,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'deleteInteractiveGuides.main',
             environment: { tableName: interactiveGuidesTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
       },
     });
@@ -156,7 +166,7 @@ export default class ApiStack extends sst.Stack {
     });
 
     const usagePlan = new UsagePlan(this, 'cdn-helsingborg-io-usage-plan', {
-      name: 'Conservative',
+      name: 'conservative',
       throttle: {
         rateLimit: 20,
         burstLimit: 2,
