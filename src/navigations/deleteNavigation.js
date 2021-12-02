@@ -2,9 +2,11 @@ import handler from '../util/handler';
 import dynamoDb from '../util/dynamodb';
 
 export const main = handler(async event => {
-  const { city: pathParamCity } = event.pathParameters;
-  const { language: pathParamLanguage } = event.pathParameters;
-  const { id: pathParamId } = event.pathParameters;
+  const {
+    city: pathParamCity,
+    language: pathParamLanguage,
+    id: pathParamId,
+  } = event.pathParameters;
 
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
