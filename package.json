@@ -21,8 +21,13 @@
   "dependencies": {
     "@aws-cdk/aws-apigateway": "1.126.0",
     "@aws-cdk/core": "1.126.0",
+    "@middy/core": "^2.5.3",
+    "@middy/http-error-handler": "^2.5.3",
+    "@middy/http-json-body-parser": "^2.5.3",
+    "@middy/validator": "^2.5.3",
     "@serverless-stack/cli": "0.46.0",
     "@serverless-stack/resources": "0.46.0",
+    "ajv": "^8.8.2",
     "aws-sdk": "^2.1006.0"
   }
 }
