@@ -150,7 +150,7 @@ export default class ApiStack extends sst.Stack {
     });
 
     const apiKey = new ApiKey(this, 'CdnHelsingborgApiKey', {
-      apiKeyName: 'my-api-key-example',
+      apiKeyName: 'cdn-helsingborg-io-apikey',
       description: 'API key used CDN Helsingborg',
       enabled: true,
     });
