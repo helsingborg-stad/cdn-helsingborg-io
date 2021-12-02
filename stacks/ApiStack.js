@@ -26,6 +26,9 @@ export default class ApiStack extends sst.Stack {
           INTERACTIVE_GUIDES_TABLE_NAME: interactiveGuidesTable.tableName,
         },
       },
+      restApi: {
+        apiKeySourceType: 'HEADER',
+      },
       routes: {
         // Navigations
         'GET /navigations': {
@@ -41,6 +44,7 @@ export default class ApiStack extends sst.Stack {
             handler: 'createNavigation.main',
             environment: { tableName: navigationsTable.tableName },
           },
+          methodOptions: { apiKeyRequired: true },
         },
         'DELETE /navigations/{city}/{language}/{id}': {
           function: {
