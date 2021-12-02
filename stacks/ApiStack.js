@@ -1,4 +1,5 @@
 import * as sst from '@serverless-stack/resources';
+import { ApiKey, UsagePlan } from '@aws-cdk/aws-apigateway';
 
 export default class ApiStack extends sst.Stack {
   // Public ref to the API
@@ -150,6 +151,27 @@ export default class ApiStack extends sst.Stack {
         },
       },
     });
+
+    const apiKey = new ApiKey(this, 'CdnHelsingborgApiKey', {
+      apiKeyName: 'my-api-key-example',
+      description: 'API key used CDN Helsingborg',
+      enabled: true,
+    });
+
+    const usagePlan = new UsagePlan(this, 'cdn-usage-plan-test', {
+      name: 'Easy',
+      throttle: {
+        rateLimit: 10,
+        burstLimit: 2,
+      },
+      apiStages: [
+        {
+          stage: this.api.restApi.deploymentStage,
+        },
+      ],
+    });
+
+    usagePlan.addApiKey(apiKey);
 
     // Allow the API to access the table
     this.api.attachPermissions([
