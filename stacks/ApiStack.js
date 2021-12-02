@@ -1,5 +1,6 @@
 import * as sst from '@serverless-stack/resources';
 import { ApiKey, UsagePlan } from '@aws-cdk/aws-apigateway';
+import { Duration } from '@aws-cdk/core';
 
 export default class ApiStack extends sst.Stack {
   // Public ref to the API
@@ -25,6 +26,14 @@ export default class ApiStack extends sst.Stack {
           GUIDES_TABLE_NAME: guidesTable.tableName,
           LANGUAGES_TABLE_NAME: languagesTable.tableName,
           INTERACTIVE_GUIDES_TABLE_NAME: interactiveGuidesTable.tableName,
+        },
+      },
+      restApi: {
+        deployOptions: {
+          cachingEnabled: true,
+          cacheClusterEnabled: true,
+          cacheClusterSize: '0.5',
+          cacheTtl: Duration.seconds(300),
         },
       },
       routes: {
