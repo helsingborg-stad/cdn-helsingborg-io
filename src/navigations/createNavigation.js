@@ -10,8 +10,6 @@ import Ajv from 'ajv';
 const ajv = new Ajv();
 
 const baseHandler = async event => {
-  // Request body is passed as a JSON encoded string in 'event.body'
-  // const data = JSON.parse(event.body);
   const data = event.body;
 
   const params = {
