@@ -57,7 +57,7 @@
     "@aws-cdk/cx-api" "1.126.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-apigateway@^1.134.0":
+"@aws-cdk/aws-apigateway@^1.126.0":
   version "1.134.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigateway/-/aws-apigateway-1.134.0.tgz#a49fc21dc13c394fb3e3d43b35f8912f3e26b8d1"
   integrity sha512-Old3NjNaU+XdFs3Rrfynq6Oa6bt6iE+6YSkq/ZHqljdTGydhTb/wU5fCBh3j9AbYsBxrua5VZO7IJdyEoiQ25w==
