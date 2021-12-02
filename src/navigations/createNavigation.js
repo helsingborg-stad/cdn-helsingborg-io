@@ -47,8 +47,11 @@ const inputSchema = {
     body: {
       type: 'object',
       properties: {
-        id: { type: 'number' },
-        user_groups: { type: 'object' },
+        id: { type: 'integer' },
+        user_groups: {
+          type: 'object',
+          properties: { id: { type: 'integer' } },
+        },
         lang: { type: 'string' },
       },
       required: ['id', 'user_groups', 'lang'],
