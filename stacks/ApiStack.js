@@ -155,10 +155,10 @@ export default class ApiStack extends sst.Stack {
       enabled: true,
     });
 
-    const usagePlan = new UsagePlan(this, 'cdn-usage-plan-test', {
-      name: 'Easy',
+    const usagePlan = new UsagePlan(this, 'cdn-helsingborg-io-usage-plan', {
+      name: 'Conservative',
       throttle: {
-        rateLimit: 10,
+        rateLimit: 20,
         burstLimit: 2,
       },
       apiStages: [
