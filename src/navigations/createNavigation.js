@@ -1,14 +1,7 @@
 import dynamoDb from '../util/dynamodb';
 import errorHandler from '../util/errorHandler';
 import { createNavigationSchema } from './validation/navigationSchema';
-
-import middy from '@middy/core';
-import validator from '@middy/validator';
-import httpErrorHandler from '@middy/http-error-handler';
-import jsonBodyParser from '@middy/http-json-body-parser';
-import Ajv from 'ajv';
-
-const ajv = new Ajv();
+import { parseAndValidateJsonBody } from '../util/commonMiddleware';
 
 const main = errorHandler(async event => {
   const data = event.body;
@@ -32,13 +25,6 @@ const main = errorHandler(async event => {
   return params.Item;
 });
 
-const handler = middy(main)
-  .use(jsonBodyParser())
-  .use(
-    validator({
-      inputSchema: ajv.compile(createNavigationSchema),
-    })
-  )
-  .use(httpErrorHandler());
+const handler = parseAndValidateJsonBody(main, createNavigationSchema);
 
 export { handler };
