@@ -1,14 +1,68 @@
-# Getting Started with Serverless Stack (SST)
+<!-- SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![License][license-shield]][license-url]
 
-This project was bootstrapped with [Create Serverless Stack](https://docs.serverless-stack.com/packages/create-serverless-stack).
+<p>
+  <a href="https://github.com/helsingborg-stad/">
+    <img src="hbg-github-logo-combo.png" alt="Logo" width="300">
+  </a>
+</p>
+<h3>Helsingborg IO CDN</h3>
 
-Start by installing the dependencies.
+  REST API that delivers data from Helsingborg stads [Event API](https://api.helsingborg.se/event).
 
-```bash
+<p>
+  <a href="https://github.com/helsingborg-stad/cdn-helsingborg-io/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/helsingborg-stad/cdn-helsingborg-io/issues">Request Feature</a>
+</p>
+
+
+
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [About Helsingborg IO CDN](#about-helsingborg-io-cdn)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Commands](#commands)
+- [Usage](#usage)
+- [Deploy](#deploy)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+
+
+## About Helsingborg IO CDN
+
+REST API that delivers data from Helsingborg stads [Event API](https://api.helsingborg.se/event).
+Currently serves as backend for the app **Guide Helsingborg**.
+
+
+### Built With
+
+* [Serverless Stack (SST)](https://serverless-stack.com/)
+
+
+## Getting Started
+
+
+### Installation
+
+Clone the repo
+```sh
+$ git clone https://github.com/helsingborg-stad/cdn-helsingborg-io.git
+```
+Install dependencies
+```sh
 $ yarn install
 ```
 
-## Commands
+
+### Commands
 
 ### `yarn run start`
 
@@ -32,13 +86,43 @@ Remove all your stacks and all of their resources from AWS. Or optionally remove
 
 Runs your tests using Jest. Takes all the [Jest CLI options](https://jestjs.io/docs/en/cli).
 
-## Documentation
 
-Learn more about the Serverless Stack.
-- [Docs](https://docs.serverless-stack.com)
-- [@serverless-stack/cli](https://docs.serverless-stack.com/packages/cli)
-- [@serverless-stack/resources](https://docs.serverless-stack.com/packages/resources)
 
-## Community
 
-[Follow us on Twitter](https://twitter.com/ServerlessStack) or [post on our forums](https://discourse.serverless-stack.com).
+## Roadmap
+
+See the [open issues][issues-url] for a list of proposed features (and known issues).
+
+
+
+## Contributing
+
+Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+## License
+
+Distributed under the [MIT License][license-url].
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/helsingborg-stad/cdn-helsingborg-io.svg?style=flat-square
+[contributors-url]: https://github.com/helsingborg-stad/cdn-helsingborg-io/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/helsingborg-stad/cdn-helsingborg-io.svg?style=flat-square
+[forks-url]: https://github.com/helsingborg-stad/cdn-helsingborg-io/network/members
+[stars-shield]: https://img.shields.io/github/stars/helsingborg-stad/cdn-helsingborg-io.svg?style=flat-square
+[stars-url]: https://github.com/helsingborg-stad/cdn-helsingborg-io/stargazers
+[issues-shield]: https://img.shields.io/github/issues/helsingborg-stad/cdn-helsingborg-io.svg?style=flat-square
+[issues-url]: https://github.com/helsingborg-stad/cdn-helsingborg-io/issues
+[license-shield]: https://img.shields.io/github/license/helsingborg-stad/cdn-helsingborg-io.svg?style=flat-square
+[license-url]: https://raw.githubusercontent.com/helsingborg-stad/cdn-helsingborg-io/main/LICENSE
+[product-screenshot]: images/screenshot.png
