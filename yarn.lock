@@ -2996,6 +2996,11 @@
   dependencies:
     "@middy/util" "^2.5.3"
 
+"@middy/http-urlencode-path-parser@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/http-urlencode-path-parser/-/http-urlencode-path-parser-2.5.3.tgz#6857388388507825c4a6643a9341607eef828e89"
+  integrity sha512-p0uzCtPcA0aU9+iH/lEWRd5Sde39YIZkbOJqjYPvWLZo3+eLpyoBklHI9w25KyyKofLc2O0Xda2yqk7KRv+XvQ==
+
 "@middy/util@^2.5.3":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@middy/util/-/util-2.5.3.tgz#d1987b43e4129d9ad614b409039f8aae2d115ff9"

@@ -1,7 +1,16 @@
-import handler from '../util/handler';
 import dynamoDb from '../util/dynamodb';
+import errorHandler from '../util/errorHandler';
 
-export const main = handler(async event => {
+import middy from '@middy/core';
+import httpUrlEncodePathParser from '@middy/http-urlencode-path-parser';
+import validator from '@middy/validator';
+import { deleteNavigationSchema } from './validation/navigationSchema';
+import httpErrorHandler from '@middy/http-error-handler';
+import Ajv from 'ajv';
+
+const ajv = new Ajv();
+
+const main = errorHandler(async event => {
   const {
     city: pathParamCity,
     language: pathParamLanguage,
@@ -20,3 +29,14 @@ export const main = handler(async event => {
 
   return { body: { status: true } };
 });
+
+const handler = middy(main)
+  .use(httpUrlEncodePathParser())
+  .use(
+    validator({
+      inputSchema: ajv.compile(deleteNavigationSchema),
+    })
+  )
+  .use(httpErrorHandler());
+
+export { handler };

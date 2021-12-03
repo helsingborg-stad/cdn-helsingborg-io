@@ -1,7 +1,7 @@
-import handler from '../util/handler';
+import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
 
-export const main = handler(async event => {
+export const main = errorHandler(async event => {
   const { userGroupId: queryCity, lang: queryLanguage } = event.queryStringParameters ?? {};
 
   let params = { TableName: process.env.NAVIGATIONS_TABLE_NAME };

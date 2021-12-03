@@ -65,7 +65,7 @@ export default class ApiStack extends sst.Stack {
         'POST /navigations': {
           function: {
             srcPath: 'src/navigations/',
-            handler: 'createNavigation.main',
+            handler: 'createNavigation.handler',
             environment: { tableName: navigationsTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },
@@ -73,7 +73,7 @@ export default class ApiStack extends sst.Stack {
         'DELETE /navigations/{city}/{language}/{id}': {
           function: {
             srcPath: 'src/navigations/',
-            handler: 'deleteNavigation.main',
+            handler: 'deleteNavigation.handler',
             environment: { tableName: navigationsTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },

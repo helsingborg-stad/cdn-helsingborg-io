@@ -1,10 +1,17 @@
-import AWS from 'aws-sdk';
+import dynamoDb from '../util/dynamodb';
+import errorHandler from '../util/errorHandler';
+import { createNavigationSchema } from './validation/navigationSchema';
 
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
+import middy from '@middy/core';
+import validator from '@middy/validator';
+import httpErrorHandler from '@middy/http-error-handler';
+import jsonBodyParser from '@middy/http-json-body-parser';
+import Ajv from 'ajv';
 
-export async function main(event) {
-  // Request body is passed as a JSON encoded string in 'event.body'
-  const data = JSON.parse(event.body);
+const ajv = new Ajv();
+
+const main = errorHandler(async event => {
+  const data = event.body;
 
   const params = {
     TableName: process.env.NAVIGATIONS_TABLE_NAME,
@@ -20,17 +27,18 @@ export async function main(event) {
     },
   };
 
-  try {
-    await dynamoDb.put(params).promise();
+  await dynamoDb.put(params);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(params.Item),
-    };
-  } catch (e) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: e.message }),
-    };
-  }
-}
+  return params.Item;
+});
+
+const handler = middy(main)
+  .use(jsonBodyParser())
+  .use(
+    validator({
+      inputSchema: ajv.compile(createNavigationSchema),
+    })
+  )
+  .use(httpErrorHandler());
+
+export { handler };

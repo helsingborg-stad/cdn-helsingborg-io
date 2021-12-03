@@ -1,8 +1,8 @@
-import handler from '../util/handler';
+import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
 import { parseGuideGroup } from '../util/formatHelpers';
 
-export const main = handler(async event => {
+export const main = errorHandler(async event => {
   const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.GUIDEGROUPS_TABLE_NAME,
