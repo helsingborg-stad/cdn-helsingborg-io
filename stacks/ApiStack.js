@@ -1,5 +1,6 @@
 import * as sst from '@serverless-stack/resources';
 import { ApiKey, UsagePlan } from '@aws-cdk/aws-apigateway';
+import { Duration } from '@aws-cdk/core';
 
 export default class ApiStack extends sst.Stack {
   // Public ref to the API
@@ -27,6 +28,14 @@ export default class ApiStack extends sst.Stack {
           INTERACTIVE_GUIDES_TABLE_NAME: interactiveGuidesTable.tableName,
         },
       },
+      restApi: {
+        deployOptions: {
+          cachingEnabled: true,
+          cacheClusterEnabled: true,
+          cacheClusterSize: '0.5',
+          cacheTtl: Duration.seconds(300),
+        },
+      },
       routes: {
         // Navigations
         'GET /navigations': {
@@ -34,6 +43,23 @@ export default class ApiStack extends sst.Stack {
             srcPath: 'src/navigations/',
             handler: 'getNavigations.main',
             environment: { tableName: navigationsTable.tableName },
+          },
+          integrationOptions: {
+            cacheKeyParameters: [
+              'method.request.querystring.userGroupId',
+              'method.request.querystring.lang',
+            ],
+            requestParameters: {
+              'integration.request.querystring.userGroupId':
+                'method.request.querystring.userGroupId',
+              'integration.request.querystring.lang': 'method.request.querystring.lang',
+            },
+          },
+          methodOptions: {
+            requestParameters: {
+              'method.request.querystring.userGroupId': false,
+              'method.request.querystring.lang': false,
+            },
           },
         },
         'POST /navigations': {
@@ -58,6 +84,22 @@ export default class ApiStack extends sst.Stack {
             srcPath: 'src/guidegroups/',
             handler: 'getGuideGroups.main',
             environment: { tableName: guidegroupsTable.tableName },
+          },
+          integrationOptions: {
+            cacheKeyParameters: [
+              'method.request.querystring.include',
+              'method.request.querystring.lang',
+            ],
+            requestParameters: {
+              'integration.request.querystring.include': 'method.request.querystring.include',
+              'integration.request.querystring.lang': 'method.request.querystring.lang',
+            },
+          },
+          methodOptions: {
+            requestParameters: {
+              'method.request.querystring.include': false,
+              'method.request.querystring.lang': false,
+            },
           },
         },
         'POST /guidegroups': {
@@ -115,6 +157,23 @@ export default class ApiStack extends sst.Stack {
             handler: 'getGuides.main',
             environment: { tableName: guidesTable.tableName },
           },
+          integrationOptions: {
+            cacheKeyParameters: [
+              'method.request.querystring.include',
+              'method.request.querystring.guideGroupId',
+            ],
+            requestParameters: {
+              'integration.request.querystring.include': 'method.request.querystring.include',
+              'integration.request.querystring.guideGroupId':
+                'method.request.querystring.guideGroupId',
+            },
+          },
+          methodOptions: {
+            requestParameters: {
+              'method.request.querystring.include': false,
+              'method.request.querystring.guideGroupId': false,
+            },
+          },
         },
         'POST /guides': {
           function: {
@@ -138,6 +197,17 @@ export default class ApiStack extends sst.Stack {
             srcPath: 'src/interactiveGuides',
             handler: 'getInteractiveGuides.main',
             environment: { tableName: interactiveGuidesTable.tableName },
+          },
+          integrationOptions: {
+            cacheKeyParameters: ['method.request.querystring.include'],
+            requestParameters: {
+              'integration.request.querystring.include': 'method.request.querystring.include',
+            },
+          },
+          methodOptions: {
+            requestParameters: {
+              'method.request.querystring.include': false,
+            },
           },
         },
         'POST /interactive_guides': {
