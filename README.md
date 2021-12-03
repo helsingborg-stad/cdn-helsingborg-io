@@ -12,7 +12,7 @@
 </p>
 <h3>Helsingborg IO CDN</h3>
 
-  REST API that delivers data from Helsingborg stads [Event API](https://api.helsingborg.se/event).
+  REST API that delivers Guide data.
 
 <p>
   <a href="https://github.com/helsingborg-stad/cdn-helsingborg-io/issues">Report Bug</a>
@@ -29,16 +29,13 @@
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Commands](#commands)
-- [Usage](#usage)
-- [Deploy](#deploy)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 
 
 ## About Helsingborg IO CDN
 
-REST API that delivers data from Helsingborg stads [Event API](https://api.helsingborg.se/event).
+REST API that delivers Guide data originated from Helsingborg stads [Event API](https://api.helsingborg.se/event).
 Currently serves as backend for the app **Guide Helsingborg**.
 
 
@@ -89,12 +86,6 @@ Runs your tests using Jest. Takes all the [Jest CLI options](https://jestjs.io/d
 
 
 
-## Roadmap
-
-See the [open issues][issues-url] for a list of proposed features (and known issues).
-
-
-
 ## Contributing
 
 Any contributions you make are **greatly appreciated**.
@@ -125,4 +116,3 @@ Distributed under the [MIT License][license-url].
 [issues-url]: https://github.com/helsingborg-stad/cdn-helsingborg-io/issues
 [license-shield]: https://img.shields.io/github/license/helsingborg-stad/cdn-helsingborg-io.svg?style=flat-square
 [license-url]: https://raw.githubusercontent.com/helsingborg-stad/cdn-helsingborg-io/main/LICENSE
-[product-screenshot]: images/screenshot.png
