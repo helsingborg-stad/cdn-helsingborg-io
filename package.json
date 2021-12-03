@@ -13,6 +13,7 @@
   "devDependencies": {
     "@aws-cdk/assert": "1.126.0",
     "@babel/eslint-parser": "^7.15.8",
+    "@middy/http-urlencode-path-parser": "^2.5.3",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
