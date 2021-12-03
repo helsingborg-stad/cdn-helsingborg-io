@@ -1,5 +1,6 @@
-import AWS from 'aws-sdk';
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
+import dynamoDb from '../util/dynamodb';
+import errorHandler from '../util/errorHandler';
+import { createNavigationSchema } from './validation/navigationSchema';
 
 import middy from '@middy/core';
 import validator from '@middy/validator';
@@ -9,7 +10,7 @@ import Ajv from 'ajv';
 
 const ajv = new Ajv();
 
-const baseHandler = async event => {
+const main = errorHandler(async event => {
   const data = event.body;
 
   const params = {
@@ -26,50 +27,16 @@ const baseHandler = async event => {
     },
   };
 
-  try {
-    await dynamoDb.put(params).promise();
+  await dynamoDb.put(params);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(params.Item),
-    };
-  } catch (e) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: e.message }),
-    };
-  }
-};
+  return params.Item;
+});
 
-const inputSchema = {
-  type: 'object',
-  properties: {
-    body: {
-      type: 'object',
-      properties: {
-        user_groups: {
-          type: 'object',
-          properties: { id: { type: 'integer' } },
-        },
-        lang: { type: 'string' },
-        id: { type: 'integer' },
-        description: { type: 'string' },
-        object_list: {
-          type: 'array',
-          items: { type: 'object', properties: { id: { type: 'number' } } },
-        },
-        name: { type: 'string' },
-      },
-      required: ['id', 'user_groups', 'lang'],
-    },
-  },
-};
-
-const handler = middy(baseHandler)
+const handler = middy(main)
   .use(jsonBodyParser())
   .use(
     validator({
-      inputSchema: ajv.compile(inputSchema),
+      inputSchema: ajv.compile(createNavigationSchema),
     })
   )
   .use(httpErrorHandler());
