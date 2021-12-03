@@ -1,7 +1,7 @@
-import handler from '../util/handler';
+import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
 
-export const main = handler(async () => {
+export const main = errorHandler(async () => {
   const params = {
     TableName: process.env.LANGUAGES_TABLE_NAME,
   };

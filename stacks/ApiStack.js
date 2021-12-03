@@ -47,7 +47,7 @@ export default class ApiStack extends sst.Stack {
         'DELETE /navigations/{city}/{language}/{id}': {
           function: {
             srcPath: 'src/navigations/',
-            handler: 'deleteNavigation.main',
+            handler: 'deleteNavigation.handler',
             environment: { tableName: navigationsTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },

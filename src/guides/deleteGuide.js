@@ -1,7 +1,7 @@
-import handler from '../util/handler';
+import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
 
-export const main = handler(async event => {
+export const main = errorHandler(async event => {
   const { id: pathParamId } = event.pathParameters;
 
   const params = {
