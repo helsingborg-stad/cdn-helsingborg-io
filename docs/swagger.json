@@ -1,11 +1,10 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "API that delivers Guide data",
-    "version" : "2021-12-02T12:57:49Z",
+    "version" : "2021-12-06T08:25:35Z",
     "title" : "dev-cdn-helsingborg-io-Api"
   },
-  "host" : "qxnnqajaog.execute-api.eu-north-1.amazonaws.com",
+  "host" : "wiagwu2iib.execute-api.eu-north-1.amazonaws.com",
   "basePath" : "/dev",
   "schemes" : [ "https" ],
   "paths" : {
@@ -52,26 +51,24 @@
         "parameters" : [ {
           "name" : "lang",
           "in" : "query",
-          "description" : "Filter by language.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "include",
           "in" : "query",
-          "description" : "Filter list with a specified list of guidegroup IDs",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : { },
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETguidegroups6-PASjDggjF1Xx/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETguidegroups6-q9DaDAF8KksJ/invocations",
           "requestParameters" : {
             "integration.request.querystring.lang" : "method.request.querystring.lang",
             "integration.request.querystring.include" : "method.request.querystring.include"
           },
           "passthroughBehavior" : "when_no_match",
-          "cacheNamespace" : "agzlt1",
+          "cacheNamespace" : "1yn8ng",
           "cacheKeyParameters" : [ "method.request.querystring.include", "method.request.querystring.lang" ],
           "type" : "aws_proxy"
         }
@@ -83,7 +80,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTguidegroups-SP9L91NHzWjy/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTguidegroups-MxlFHOObhtSb/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -139,7 +136,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaPUTguidegroupsi-MxF9hVI2lvhC/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaPUTguidegroupsi-IklwYfgoZm5a/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -157,7 +154,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEguidegrou-q95MkrlSBl7E/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEguidegrou-YC1IuH3iWlHa/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -221,13 +218,13 @@
         "responses" : { },
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETguides604BAB-v6T87qBZHU4y/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETguides604BAB-YTxsNEFIdv8F/invocations",
           "requestParameters" : {
             "integration.request.querystring.include" : "method.request.querystring.include",
             "integration.request.querystring.guideGroupId" : "method.request.querystring.guideGroupId"
           },
           "passthroughBehavior" : "when_no_match",
-          "cacheNamespace" : "hnhmjp",
+          "cacheNamespace" : "xjp7en",
           "cacheKeyParameters" : [ "method.request.querystring.include", "method.request.querystring.guideGroupId" ],
           "type" : "aws_proxy"
         }
@@ -239,7 +236,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTguidesAAC5D-bnLOKZqZp3W9/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTguidesAAC5D-SasaZkx9FD1h/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -295,7 +292,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEguidesid6-JJpEFvEU01mb/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEguidesid6-Yea7pa8JEUBf/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -354,12 +351,12 @@
         "responses" : { },
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETinteractiveg-mK5dxxaUEwsD/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETinteractiveg-gVrvcqWgvu52/invocations",
           "requestParameters" : {
             "integration.request.querystring.include" : "method.request.querystring.include"
           },
           "passthroughBehavior" : "when_no_match",
-          "cacheNamespace" : "6gzn5p",
+          "cacheNamespace" : "jcw8jl",
           "cacheKeyParameters" : [ "method.request.querystring.include" ],
           "type" : "aws_proxy"
         }
@@ -371,7 +368,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTinteractive-u9wqLiC0yF5D/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTinteractive-GlNpKN3bwLTr/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -427,7 +424,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEinteracti-9aWaMthiQbFy/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEinteracti-QelyIzt072pu/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -480,7 +477,7 @@
         "responses" : { },
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETlanguages5BB-caaAUfTwBSmo/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETlanguages5BB-hwvUYEI01rth/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -492,7 +489,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTlanguages9F-mYUinwMV4bN4/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTlanguages9F-yZl7o5sC1A9J/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -548,7 +545,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETElanguages-cwjT4ZEBu8QY/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETElanguages-cCdReeNrW77m/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -612,13 +609,13 @@
         "responses" : { },
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETnavigations4-UJAgtyUTqXZa/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaGETnavigations4-zxLY9fsd8qAo/invocations",
           "requestParameters" : {
             "integration.request.querystring.userGroupId" : "method.request.querystring.userGroupId",
             "integration.request.querystring.lang" : "method.request.querystring.lang"
           },
           "passthroughBehavior" : "when_no_match",
-          "cacheNamespace" : "em3m1c",
+          "cacheNamespace" : "1eyz2t",
           "cacheKeyParameters" : [ "method.request.querystring.userGroupId", "method.request.querystring.lang" ],
           "type" : "aws_proxy"
         }
@@ -630,7 +627,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTnavigations-gyPz1osFp99X/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaPOSTnavigations-O26Ju2HAxSFh/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -789,7 +786,7 @@
         } ],
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:844380502989:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEnavigatio-cU9d8vQaLkRd/invocations",
+          "uri" : "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:605509257148:function:dev-cdn-helsingborg-io-ap-ApiLambdaDELETEnavigatio-OlG39batUF4R/invocations",
           "passthroughBehavior" : "when_no_match",
           "type" : "aws_proxy"
         }
@@ -854,46 +851,5 @@
       "name" : "x-api-key",
       "in" : "header"
     }
-  },
-  "x-amazon-apigateway-documentation" : {
-    "version" : "1.0.1",
-    "createdDate" : "2021-12-03T10:56:04Z",
-    "documentationParts" : [ {
-      "location" : {
-        "type" : "API"
-      },
-      "properties" : {
-        "info" : {
-          "description" : "API that delivers Guide data"
-        }
-      }
-    }, {
-      "location" : {
-        "type" : "QUERY_PARAMETER",
-        "path" : "/guidegroups",
-        "method" : "GET",
-        "name" : "include"
-      },
-      "properties" : {
-        "description" : "Filter list with a specified list of guidegroup IDs"
-      }
-    }, {
-      "location" : {
-        "type" : "QUERY_PARAMETER",
-        "path" : "/guidegroups",
-        "method" : "GET",
-        "name" : "lang"
-      },
-      "properties" : {
-        "description" : "Filter by language."
-      }
-    }, {
-      "location" : {
-        "type" : "RESOURCE"
-      },
-      "properties" : {
-        "description" : "Root resource"
-      }
-    } ]
   }
 }

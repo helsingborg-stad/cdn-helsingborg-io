@@ -29,6 +29,7 @@
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Commands](#commands)
+  - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -84,6 +85,9 @@ Remove all your stacks and all of their resources from AWS. Or optionally remove
 Runs your tests using Jest. Takes all the [Jest CLI options](https://jestjs.io/docs/en/cli).
 
 
+### Usage
+
+To visualize and interact with the API’s resources, see the [Swagger UI](https://helsingborg-stad.github.io/cdn-helsingborg-io) documentation.
 
 
 ## Contributing
