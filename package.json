@@ -9,6 +9,7 @@
     "deploy": "sst deploy",
     "remove": "sst remove",
     "lint": "eslint --ignore-path .gitignore ."
+    "export-docs": "sh export-docs.sh",
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.126.0",
