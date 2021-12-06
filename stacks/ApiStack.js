@@ -17,6 +17,8 @@ export default class ApiStack extends sst.Stack {
       interactiveGuidesTable,
     } = props;
 
+    const stageName = `${scope.stage}-${scope.name}`;
+
     // Create the API
     this.api = new sst.ApiGatewayV1Api(this, 'Api', {
       defaultFunctionProps: {
@@ -229,14 +231,14 @@ export default class ApiStack extends sst.Stack {
       },
     });
 
-    const apiKey = new ApiKey(this, 'CdnHelsingborgApiKey', {
-      apiKeyName: 'cdn-helsingborg-io-apikey',
-      description: 'API key used CDN Helsingborg',
+    const apiKey = new ApiKey(this, `${stageName}-api-key`, {
+      apiKeyName: `${stageName}-apikey`,
+      description: 'API key used by CDN Helsingborg',
       enabled: true,
     });
 
-    const usagePlan = new UsagePlan(this, 'cdn-helsingborg-io-usage-plan', {
-      name: 'conservative',
+    const usagePlan = new UsagePlan(this, `${stageName}-usage-plan`, {
+      name: `conservative-${stageName}`,
       throttle: {
         rateLimit: 20,
         burstLimit: 2,
