@@ -84,6 +84,15 @@ Remove all your stacks and all of their resources from AWS. Or optionally remove
 
 Runs your tests using Jest. Takes all the [Jest CLI options](https://jestjs.io/docs/en/cli).
 
+### `yarn export-docs [rest-api-name] [stage-name]`
+
+Export API as Swagger specification.
+
+### `yarn run-docs`
+Run local Swagger UI server
+
+
+
 
 ### Usage
 
