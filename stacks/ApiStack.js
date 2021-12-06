@@ -229,14 +229,14 @@ export default class ApiStack extends sst.Stack {
       },
     });
 
-    const apiKey = new ApiKey(this, 'CdnHelsingborgApiKey', {
-      apiKeyName: 'cdn-helsingborg-io-apikey',
-      description: 'API key used CDN Helsingborg',
+    const apiKey = new ApiKey(this, `${scope.stage}-cdn-helsingborg-api-key`, {
+      apiKeyName: `${scope.stage}-cdn-helsingborg-io-apikey`,
+      description: 'API key used by CDN Helsingborg',
       enabled: true,
     });
 
-    const usagePlan = new UsagePlan(this, 'cdn-helsingborg-io-usage-plan', {
-      name: 'conservative',
+    const usagePlan = new UsagePlan(this, `${scope.stage}-cdn-helsingborg-io-usage-plan`, {
+      name: `conservative-${scope.stage}-${scope.name}`,
       throttle: {
         rateLimit: 20,
         burstLimit: 2,
