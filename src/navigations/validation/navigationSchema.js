@@ -4,23 +4,29 @@ export const createNavigationSchema = {
   properties: {
     body: {
       type: 'object',
-      required: ['id', 'user_groups', 'lang'],
+      required: ['id', 'user_groups', 'lang', 'description', 'object_list', 'name', 'slug'],
       properties: {
+        id: { type: 'integer' },
         user_groups: {
           type: 'object',
+          required: ['id'],
           properties: { id: { type: 'integer' } },
         },
         lang: { type: 'string' },
-        id: { type: 'integer' },
         description: { type: 'string' },
         object_list: {
           type: 'array',
           items: {
             type: 'object',
-            properties: { id: { type: 'number' } },
+            required: ['id', 'type'],
+            properties: {
+              id: { type: 'number' },
+              type: { type: 'string' },
+            },
           },
         },
         name: { type: 'string' },
+        slut: { type: 'string' },
       },
     },
   },
