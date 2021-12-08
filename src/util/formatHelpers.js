@@ -32,24 +32,12 @@ export const parseOpeningHour = item => {
   return openHour;
 };
 
-const parseProperty = item => {
-  const property = {
-    id: item.id,
-    name: item.name,
-    slug: item.slug,
-  };
-
-  if (item.icon !== null) {
-    try {
-      property.icon = new URL(item.icon).toString();
-    } catch (e) {
-      // not a well formatted url, discarding
-      console.warning('Not a well formatted url', e);
-    }
-  }
-
-  return property;
-};
+export const parseProperty = item => ({
+  id: item.id,
+  name: item.name,
+  slug: item.slug,
+  icon: parseUrl(item.icon),
+});
 
 const parseLocation = item => {
   const {

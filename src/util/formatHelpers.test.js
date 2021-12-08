@@ -1,4 +1,4 @@
-import { parseUrl, parseImages, parseDate, parseOpeningHour } from './formatHelpers';
+import { parseUrl, parseImages, parseDate, parseOpeningHour, parseProperty } from './formatHelpers';
 
 describe('parseUrl', () => {
   test('return null if URL is not valid', () => {
@@ -73,5 +73,17 @@ describe('parseOpeningHour', () => {
       weekday: 'Thursday',
     };
     expect(parseOpeningHour(openHour)).toMatchObject(parsedOpenHour);
+  });
+});
+
+describe('parseProperty', () => {
+  const property = {
+    id: 'id',
+    name: 'name',
+    slug: 'slug',
+    icon: 'https://domain.com/images/icon.jpg',
+  };
+  test('return parsed property', () => {
+    expect(parseProperty(property)).toMatchObject(property);
   });
 });
