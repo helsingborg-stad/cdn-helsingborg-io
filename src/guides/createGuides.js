@@ -1,9 +1,11 @@
 import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
 import { parseGuide } from '../util/formatHelpers';
+import { parseAndValidateJsonBody } from '../util/commonMiddleware';
+import { createGuidesSchema } from './validation/guidesSchema';
 
-export const main = errorHandler(async event => {
-  const data = JSON.parse(event.body);
+const main = errorHandler(async event => {
+  const data = event.body;
   const params = {
     TableName: process.env.GUIDES_TABLE_NAME,
     Item: parseGuide(data),
@@ -16,3 +18,7 @@ export const main = errorHandler(async event => {
 
   return params.Item;
 });
+
+const handler = parseAndValidateJsonBody(main, createGuidesSchema);
+
+export { handler };
