@@ -47,3 +47,18 @@ export const deleteNavigationSchema = {
     },
   },
 };
+
+export const getNavigationSchema = {
+  type: 'object',
+  required: ['pathParameters'],
+  properties: {
+    pathParameters: {
+      type: 'object',
+      required: ['userGroupId', 'lang'],
+      properties: {
+        userGroupId: { type: 'string', pattern: '^\\d{1,}$' },
+        lang: { type: 'string', pattern: '^\\d{1,}$' },
+      },
+    },
+  },
+};
