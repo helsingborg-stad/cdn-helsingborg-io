@@ -1,15 +1,9 @@
-const parseUrl = urlString => {
-  if (urlString === null || urlString === undefined) {
-    return null;
-  }
-
+export const parseUrl = urlString => {
   try {
     return new URL(urlString).toString();
   } catch (error) {
-    console.error('Not a well formatted url, discarding: ' + urlString);
+    return null;
   }
-
-  return null;
 };
 
 const parseImages = item => {
