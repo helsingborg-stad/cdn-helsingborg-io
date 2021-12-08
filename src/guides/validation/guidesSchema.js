@@ -37,3 +37,17 @@ export const createGuidesSchema = {
     },
   },
 };
+
+export const getGuidesSchema = {
+  type: 'object',
+  required: ['queryStringParameters'],
+  properties: {
+    queryStringParameters: {
+      type: 'object',
+      properties: {
+        include: { type: 'string', pattern: '^[1-9,]{1,}$' },
+        guideGroupId: { type: 'string', pattern: '^\\d{1,}$' },
+      },
+    },
+  },
+};
