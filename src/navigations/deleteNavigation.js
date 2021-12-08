@@ -1,6 +1,6 @@
 import dynamoDb from '../util/dynamodb';
 import errorHandler from '../util/errorHandler';
-import { deleteNavigationSchema } from './validation/navigationSchema';
+import { deleteNavigationSchema } from './validation/navigationsSchema';
 import { parseEncodeAndValidatePath } from '../util/commonMiddleware';
 
 const main = errorHandler(async event => {

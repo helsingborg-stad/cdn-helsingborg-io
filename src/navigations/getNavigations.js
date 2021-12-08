@@ -1,7 +1,7 @@
 import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
 import { parseEncodeAndValidatePath } from '../util/commonMiddleware';
-import { getNavigationSchema } from './validation/navigationSchema';
+import { getNavigationSchema } from './validation/navigationsSchema';
 
 const main = errorHandler(async event => {
   const { userGroupId: queryCity, lang: queryLanguage } = event.queryStringParameters ?? {};
