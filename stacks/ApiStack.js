@@ -180,7 +180,7 @@ export default class ApiStack extends sst.Stack {
         'POST /guides': {
           function: {
             srcPath: 'src/guides',
-            handler: 'createGuides.main',
+            handler: 'createGuides.handler',
             environment: { tableName: guidesTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },
