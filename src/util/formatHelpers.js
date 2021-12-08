@@ -39,7 +39,7 @@ export const parseProperty = item => ({
   icon: parseUrl(item.icon),
 });
 
-const parseLocation = item => {
+export const parseLocation = item => {
   const {
     id,
     street_address: streetAddress,

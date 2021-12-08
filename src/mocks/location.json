@@ -1,0 +1,148 @@
+{
+  "id": 999,
+  "date": "2017-03-06T22:52:30",
+  "date_gmt": "2017-03-06T21:52:30",
+  "modified": "2021-04-08T09:56:16",
+  "modified_gmt": "2021-04-08T07:56:16",
+  "slug": "mount-doom",
+  "status": "publish",
+  "title": {
+    "rendered": "Mount Doom",
+    "plain_text": "Mount Doom"
+  },
+  "featured_media": 0,
+  "parent": 0,
+  "user_groups": [
+    {
+      "id": 1,
+      "name": "Barad-dûr",
+      "slug": "barad-dur"
+    }
+  ],
+  "location_categories": [
+    "Bes\u00f6ksm\u00e5l"
+  ],
+  "property": [
+    {
+      "id": 3806,
+      "name": "Caf\u00e9",
+      "slug": "caferestaurang",
+      "icon": "https:\/\/api.helsingborg.se\/wp-content\/uploads\/sites\/2\/2018\/01\/icon_cafe.svg"
+    },
+    {
+      "id": 3804,
+      "name": "Gratis wifi",
+      "slug": "gratis-wifi",
+      "icon": "https:\/\/api.helsingborg.se\/wp-content\/uploads\/sites\/2\/2018\/01\/icon_wifi.svg"
+    }
+  ],
+  "street_address": "Mount doom",
+  "postal_code": "123 45",
+  "city": "Mordor",
+  "municipality": null,
+  "country": "Middle earth",
+  "latitude": "56.04779",
+  "longitude": "12.6890579",
+  "formatted_address": "Mount doom, 123 45, Mordor, Middle earth",
+  "open_hours": [
+    {
+      "day_number": "1",
+      "weekday": "Monday",
+      "closed": true,
+      "opening": null,
+      "closing": null
+    },
+    {
+      "day_number": "2",
+      "weekday": "Tuesday",
+      "closed": false,
+      "opening": "10:00",
+      "closing": "18:00"
+    }
+  ],
+  "open_hour_exceptions": null,
+  "links": [
+    {
+      "service": "webpage",
+      "url": "https:\/\/exampledomain.com"
+    }
+  ],
+  "gallery": null,
+  "age_restriction": null,
+  "membership_cards": null,
+  "price_information": null,
+  "price_adult": null,
+  "price_children": null,
+  "children_age": null,
+  "price_student": null,
+  "price_senior": null,
+  "senior_age": null,
+  "organizers": null,
+  "lang": "sv",
+  "translations": {
+    "sv": 7986
+  },
+  "_links": {
+    "self": [
+      {
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/location\/7986"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/location"
+      }
+    ],
+    "about": [
+      {
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/types\/location"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 10,
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/location\/7986\/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 1873646,
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/location\/7986\/revisions\/1873646"
+      }
+    ],
+    "complete": [
+      {
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/location\/7986\/?_embed"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/media?parent=7986"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "user_groups",
+        "embeddable": true,
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/user_groups?post=7986"
+      },
+      {
+        "taxonomy": "location_categories",
+        "embeddable": true,
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/location_categories?post=7986"
+      },
+      {
+        "taxonomy": "property",
+        "embeddable": true,
+        "href": "https:\/\/api.helsingborg.se\/event\/json\/wp\/v2\/property?post=7986"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https:\/\/api.w.org\/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

@@ -1,4 +1,13 @@
-import { parseUrl, parseImages, parseDate, parseOpeningHour, parseProperty } from './formatHelpers';
+import {
+  parseUrl,
+  parseImages,
+  parseDate,
+  parseOpeningHour,
+  parseProperty,
+  parseLocation,
+} from './formatHelpers';
+
+import location from '../mocks/location';
 
 describe('parseUrl', () => {
   test('return null if URL is not valid', () => {
@@ -85,5 +94,36 @@ describe('parseProperty', () => {
   };
   test('return parsed property', () => {
     expect(parseProperty(property)).toMatchObject(property);
+  });
+});
+
+describe('parseLocation', () => {
+  test('return parsed location', () => {
+    const parsedLocation = {
+      id: 999,
+      latitude: 56.04779,
+      links: [{ service: 'webpage', url: 'https://exampledomain.com' }],
+      longitude: 12.6890579,
+      streetAddress: 'Mount doom',
+      title: { rendered: 'Mount Doom', plain_text: 'Mount Doom' },
+      openingHours: [
+        {
+          closed: true,
+          closing: null,
+          dayNumber: 1,
+          opening: null,
+          weekday: 'Monday',
+        },
+        {
+          closed: false,
+          closing: '18:00',
+          dayNumber: 2,
+          opening: '10:00',
+          weekday: 'Tuesday',
+        },
+      ],
+    };
+
+    expect(parseLocation(location)).toMatchObject(parsedLocation);
   });
 });
