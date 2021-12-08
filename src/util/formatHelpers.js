@@ -19,7 +19,7 @@ export const parseImages = item => {
   }
 };
 
-const parseOpeningHour = item => {
+export const parseOpeningHour = item => {
   const { weekday, closed, opening, closing, day_number: dayNumber } = item;
 
   const openHour = {
