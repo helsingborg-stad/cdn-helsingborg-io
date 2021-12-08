@@ -139,7 +139,7 @@ export default class ApiStack extends sst.Stack {
         'POST /languages': {
           function: {
             srcPath: 'src/languages',
-            handler: 'createLanguages.main',
+            handler: 'createLanguages.handler',
             environment: { tableName: languagesTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },
