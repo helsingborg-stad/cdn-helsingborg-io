@@ -184,12 +184,13 @@ function parseImageUrls(data) {
   return images;
 }
 
-function parseDate(data) {
-  if (data === null || data === undefined) {
-    throw new Error('Can not parse null/undefined to a date.');
+export const parseDate = date => {
+  if (!date) {
+    return null;
   }
-  return new Date(data).toISOString();
-}
+
+  return new Date(date).toISOString();
+};
 
 function parseMediaContent(data) {
   if (!(data instanceof Object)) {
@@ -357,13 +358,13 @@ export const parseGuide = item => {
     guide.contentObjects = parseContentObjects(contentObjects, subAttractions, locationData);
   }
 
-  if (item.guide_date_start) {
-    const dateStart = parseDate(item.guide_date_start);
+  const dateStart = parseDate(item.guide_date_start);
+  if (dateStart) {
     guide.dateStart = dateStart;
   }
 
-  if (item.guide_date_end) {
-    const dateEnd = parseDate(item.guide_date_end);
+  const dateEnd = parseDate(item.guide_date_end);
+  if (dateEnd) {
     guide.dateEnd = dateEnd;
   }
 

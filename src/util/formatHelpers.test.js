@@ -40,3 +40,15 @@ test('handle invalid image sizes object', () => {
   expect(parseImages(undefined)).toBeNull();
   expect(parseImages({})).toMatchObject(parsedImageSizes);
 });
+
+import { parseDate } from './formatHelpers';
+
+test('return date string', () => {
+  expect(parseDate('2021-06-08')).toMatch('2021-06-08T00:00:00.000Z');
+});
+
+test('handle falsy date string', () => {
+  expect(parseDate(null)).toBeNull();
+  expect(parseDate('')).toBeNull();
+  expect(parseDate(undefined)).toBeNull();
+});
