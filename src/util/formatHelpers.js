@@ -6,13 +6,17 @@ export const parseUrl = urlString => {
   }
 };
 
-const parseImages = item => {
-  const images = {
-    large: parseUrl(item.large),
-    medium: parseUrl(item.medium),
-    thumbnail: parseUrl(item.thumbnail),
-  };
-  return images;
+export const parseImages = item => {
+  try {
+    const images = {
+      large: parseUrl(item.large),
+      medium: parseUrl(item.medium),
+      thumbnail: parseUrl(item.thumbnail),
+    };
+    return images;
+  } catch (error) {
+    return null;
+  }
 };
 
 const parseOpeningHour = item => {
