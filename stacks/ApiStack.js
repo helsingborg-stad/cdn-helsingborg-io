@@ -156,7 +156,7 @@ export default class ApiStack extends sst.Stack {
         'GET /guides': {
           function: {
             srcPath: 'src/guides',
-            handler: 'getGuides.main',
+            handler: 'getGuides.handler',
             environment: { tableName: guidesTable.tableName },
           },
           integrationOptions: {
