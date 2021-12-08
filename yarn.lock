@@ -2989,6 +2989,11 @@
   dependencies:
     "@middy/util" "^2.5.3"
 
+"@middy/http-event-normalizer@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/http-event-normalizer/-/http-event-normalizer-2.5.3.tgz#5a1c95772396fcc914745e4becaebfca8a6fd2d6"
+  integrity sha512-dycuYvwglyLaP3tdb7Fbk1jFV/chp1QfWqzthwqexoS44QqXzXi66yudTvDPsgu5vZ8/GLq4qjHNkce6iNfYPw==
+
 "@middy/http-json-body-parser@^2.5.3":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@middy/http-json-body-parser/-/http-json-body-parser-2.5.3.tgz#7ffa8134c7f4141c00fd53503a69cd815d211a97"
@@ -9436,6 +9441,18 @@ supports-hyperlinks@^2.0.0:
   dependencies:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
+
+swagger-ui-dist@>3.52.5:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-4.1.2.tgz#5dd182400eaead52511707b50bde29672a975794"
+  integrity sha512-Pj960coj9L0nAQPE1vgBzHulKGPNw1ifn/1GTIv/mlV9V3PoRM0uTcE0uhTiizx6aHg+vnFFmbA2J1gjFekOaQ==
+
+swagger-ui-express@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-4.2.0.tgz#98797cc147071170670415c9193951cfbde173bd"
+  integrity sha512-znrHTwh9UpvsjqgWopA4noIet7mi7UGuIYZ465YfUDKQ5Dpas0jxnkfUKCo+0aB17YCBv26AhIjiQYDV4uvJFA==
+  dependencies:
+    swagger-ui-dist ">3.52.5"
 
 symbol-tree@^3.2.4:
   version "3.2.4"
