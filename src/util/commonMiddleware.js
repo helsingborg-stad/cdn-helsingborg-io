@@ -4,6 +4,7 @@ import validator from '@middy/validator';
 import httpErrorHandler from '@middy/http-error-handler';
 import Ajv from 'ajv';
 import httpUrlEncodePathParser from '@middy/http-urlencode-path-parser';
+import httpEventNormalizer from '@middy/http-event-normalizer';
 
 const ajv = new Ajv();
 
@@ -21,6 +22,7 @@ export function parseAndValidateJsonBody(lambdaMain, validationSchema) {
 export function parseEncodeAndValidatePath(lambdaMain, validationSchema) {
   return middy(lambdaMain)
     .use(httpUrlEncodePathParser())
+    .use(httpEventNormalizer())
     .use(
       validator({
         inputSchema: ajv.compile(validationSchema),
