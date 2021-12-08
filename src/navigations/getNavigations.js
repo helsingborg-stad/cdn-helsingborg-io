@@ -1,7 +1,9 @@
 import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
+import { parseEncodeAndValidatePath } from '../util/commonMiddleware';
+import { getNavigationSchema } from './validation/navigationSchema';
 
-export const main = errorHandler(async event => {
+const main = errorHandler(async event => {
   const { userGroupId: queryCity, lang: queryLanguage } = event.queryStringParameters ?? {};
 
   let params = { TableName: process.env.NAVIGATIONS_TABLE_NAME };
@@ -49,3 +51,7 @@ export const main = errorHandler(async event => {
 
   return result.Items;
 });
+
+const handler = parseEncodeAndValidatePath(main, getNavigationSchema);
+
+export { handler };
