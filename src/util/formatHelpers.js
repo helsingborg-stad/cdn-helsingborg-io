@@ -176,7 +176,7 @@ export const parseDate = date => {
   return new Date(date).toISOString();
 };
 
-function parseMediaContent(data) {
+export const parseMediaContent = data => {
   if (!(data instanceof Object)) {
     throw new Error('Failed to parse media content from data: ' + data);
   }
@@ -191,7 +191,7 @@ function parseMediaContent(data) {
     url: new URL(data.url).toString(),
   };
   return media;
-}
+};
 
 const parseSubAttraction = (id, subAttractions, locations) => {
   const subAttractionData = subAttractions.find(item => {

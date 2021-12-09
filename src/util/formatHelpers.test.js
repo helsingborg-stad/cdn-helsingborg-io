@@ -8,6 +8,7 @@ import {
   parseGuideType,
   getPostStatus,
   parseImageUrls,
+  parseMediaContent,
 } from './formatHelpers';
 
 import location from '../mocks/location';
@@ -157,5 +158,35 @@ describe('parseImageUrls', () => {
     ];
     const parsedImages = [images[0].sizes];
     expect(parseImageUrls(images)).toEqual(parsedImages);
+  });
+});
+
+describe('parseMediaContent', () => {
+  const media = {
+    id: 1874807,
+    title: 'okand-dam-swe',
+    url: 'https://example.test/wp-content/uploads/sound.mp3',
+    description: '"okand-dam-swe". Släppt: 2021.',
+    date: '2021-04-27 10:54:03',
+    modified: '2021-05-07 12:13:11',
+    type: 'audio',
+  };
+
+  const parsedMedia = {
+    contentType: 'audio',
+    created: '2021-04-27T08:54:03.000Z',
+    description: '"okand-dam-swe". Släppt: 2021.',
+    id: 1874807,
+    modified: '2021-05-07T10:13:11.000Z',
+    title: 'okand-dam-swe',
+    url: 'https://example.test/wp-content/uploads/sound.mp3',
+  };
+
+  test('parsed media content', () => {
+    expect(parseMediaContent(media)).toMatchObject(parsedMedia);
+  });
+
+  test('handle parse error', () => {
+    expect(() => parseMediaContent(null)).toThrowError('Failed to parse media content');
   });
 });
