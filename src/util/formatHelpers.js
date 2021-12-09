@@ -7,16 +7,12 @@ export const parseUrl = urlString => {
 };
 
 export const parseImages = item => {
-  try {
-    const images = {
-      large: parseUrl(item.large),
-      medium: parseUrl(item.medium),
-      thumbnail: parseUrl(item.thumbnail),
-    };
-    return images;
-  } catch (error) {
-    return null;
-  }
+  const images = {
+    large: parseUrl(item.large),
+    medium: parseUrl(item.medium),
+    thumbnail: parseUrl(item.thumbnail),
+  };
+  return images;
 };
 
 export const parseOpeningHour = item => {
@@ -156,7 +152,7 @@ export const parseGuideType = item => {
 
 export const getPostStatus = active => (active ? 'publish' : 'draft');
 
-function parseImageUrls(data) {
+export function parseImageUrls(data) {
   const images = [];
   try {
     if (data instanceof Array) {
@@ -167,7 +163,7 @@ function parseImageUrls(data) {
     }
   } catch (error) {
     // something went wrong
-    console.warning('Failed to parse images data: ', data);
+    console.log('Failed to parse images data: ', data);
   }
   return images;
 }

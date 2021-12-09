@@ -7,6 +7,7 @@ import {
   parseLocation,
   parseGuideType,
   getPostStatus,
+  parseImageUrls,
 } from './formatHelpers';
 
 import location from '../mocks/location';
@@ -47,9 +48,6 @@ describe('parseImages', () => {
       medium: null,
       thumbnail: null,
     };
-
-    expect(parseImages(null)).toBeNull();
-    expect(parseImages(undefined)).toBeNull();
     expect(parseImages({})).toMatchObject(parsedImageSizes);
   });
 });
@@ -143,5 +141,21 @@ describe('getPostStatus', () => {
   test('return post status', () => {
     expect(getPostStatus(true)).toMatch('publish');
     expect(getPostStatus(false)).toMatch('draft');
+  });
+});
+
+describe('parseImageUrls', () => {
+  test('return list of image objects containing sizes', () => {
+    const images = [
+      {
+        sizes: {
+          large: 'https://domain.com/images/large.jpg',
+          medium: 'https://domain.com/images/medium.jpg',
+          thumbnail: 'https://domain.com/images/thumbnail.jpg',
+        },
+      },
+    ];
+    const parsedImages = [images[0].sizes];
+    expect(parseImageUrls(images)).toEqual(parsedImages);
   });
 });
