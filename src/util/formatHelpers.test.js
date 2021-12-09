@@ -9,6 +9,8 @@ import {
   getPostStatus,
   parseImageUrls,
   parseMediaContent,
+  parseLink,
+  parseLinks,
 } from './formatHelpers';
 
 import location from '../mocks/location';
@@ -164,9 +166,9 @@ describe('parseImageUrls', () => {
 describe('parseMediaContent', () => {
   const media = {
     id: 1874807,
-    title: 'okand-dam-swe',
+    title: 'some-title',
     url: 'https://example.test/wp-content/uploads/sound.mp3',
-    description: '"okand-dam-swe". Släppt: 2021.',
+    description: 'some-description',
     date: '2021-04-27 10:54:03',
     modified: '2021-05-07 12:13:11',
     type: 'audio',
@@ -175,10 +177,10 @@ describe('parseMediaContent', () => {
   const parsedMedia = {
     contentType: 'audio',
     created: '2021-04-27T08:54:03.000Z',
-    description: '"okand-dam-swe". Släppt: 2021.',
+    description: 'some-description',
     id: 1874807,
     modified: '2021-05-07T10:13:11.000Z',
-    title: 'okand-dam-swe',
+    title: 'some-title',
     url: 'https://example.test/wp-content/uploads/sound.mp3',
   };
 
@@ -188,5 +190,38 @@ describe('parseMediaContent', () => {
 
   test('handle parse error', () => {
     expect(() => parseMediaContent(null)).toThrowError('Failed to parse media content');
+  });
+});
+
+describe('parseLink', () => {
+  test('return link', () => {
+    const link = {
+      title: 'Title',
+      link: 'https://example.test/web/',
+    };
+    const parsedLink = {
+      title: 'Title',
+      url: 'https://example.test/web/',
+    };
+    expect(parseLink(link)).toMatchObject(parsedLink);
+  });
+});
+
+describe('parseLinks', () => {
+  test('return links', () => {
+    const data = [
+      {
+        title: 'Title',
+        link: 'https://example.test/web/object/152376',
+      },
+    ];
+    const links = [
+      {
+        title: 'Title',
+        type: undefined,
+        url: 'https://example.test/web/object/152376',
+      },
+    ];
+    expect(parseLinks(data)).toMatchObject(links);
   });
 });

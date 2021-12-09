@@ -192,7 +192,6 @@ export const parseMediaContent = data => {
   };
   return media;
 };
-
 const parseSubAttraction = (id, subAttractions, locations) => {
   const subAttractionData = subAttractions.find(item => {
     const { content } = item;
@@ -212,13 +211,13 @@ const parseSubAttraction = (id, subAttractions, locations) => {
   return location;
 };
 
-const parseLink = data => ({
+export const parseLink = data => ({
   title: data.title,
   type: data.service,
   url: new URL(data.link).toString(),
 });
 
-const parseLinks = data => {
+export const parseLinks = data => {
   const links = [];
   for (const item of data) {
     try {
