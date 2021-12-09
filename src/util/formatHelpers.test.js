@@ -5,6 +5,8 @@ import {
   parseOpeningHour,
   parseProperty,
   parseLocation,
+  parseGuideType,
+  getPostStatus,
 } from './formatHelpers';
 
 import location from '../mocks/location';
@@ -125,5 +127,21 @@ describe('parseLocation', () => {
     };
 
     expect(parseLocation(location)).toMatchObject(parsedLocation);
+  });
+});
+
+describe('parseGuideType', () => {
+  test('return guide type', () => {
+    expect(parseGuideType('guide')).toMatch('guide');
+  });
+  test('handle falsy guide type', () => {
+    expect(parseGuideType('test')).toBeUndefined();
+  });
+});
+
+describe('getPostStatus', () => {
+  test('return post status', () => {
+    expect(getPostStatus(true)).toMatch('publish');
+    expect(getPostStatus(false)).toMatch('draft');
   });
 });

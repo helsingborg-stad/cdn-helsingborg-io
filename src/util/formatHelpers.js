@@ -149,12 +149,12 @@ export const parseGuideGroup = item => {
   return guideGroup;
 };
 
-const parseGuideType = item => {
+export const parseGuideType = item => {
   const acceptedGuideTypes = ['guide', 'trail'];
   return acceptedGuideTypes.find(type => type === item);
 };
 
-const getPostStatus = active => (active ? 'publish' : 'draft');
+export const getPostStatus = active => (active ? 'publish' : 'draft');
 
 function parseImageUrls(data) {
   const images = [];
