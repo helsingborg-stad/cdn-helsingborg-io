@@ -1,0 +1,94 @@
+{
+  "contentObjectInput": {
+    "order": 0,
+    "active": true,
+    "id": "001",
+    "title": "Objekt 1",
+    "description": "<p>Beskrivning</p>\n",
+    "description_plain": "Beskrivning\n\n",
+    "image": [
+      {
+        "ID": 13,
+        "id": 13,
+        "title": "stars-67616_1920",
+        "filename": "stars-67616_1920.jpg",
+        "filesize": 358393,
+        "url": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920.jpg",
+        "link": "https://api.helsingborg.se/event-demo/guide/this-is-a-guide/stars-67616_1920/",
+        "alt": "",
+        "author": "2",
+        "description": "",
+        "caption": "",
+        "name": "stars-67616_1920",
+        "status": "inherit",
+        "uploaded_to": 12,
+        "date": "2021-12-10 12:46:54",
+        "modified": "2021-12-10 13:27:50",
+        "menu_order": 0,
+        "mime_type": "image/jpeg",
+        "type": "image",
+        "subtype": "jpeg",
+        "icon": "https://api.helsingborg.se/event-demo/wp-includes/images/media/default.png",
+        "width": "1920",
+        "height": "1345",
+        "sizes": {
+          "large": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-1024x717.jpg",
+          "medium": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-300x210.jpg",
+          "thumbnail": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-150x150.jpg"
+        }
+      }
+    ],
+    "audio": null,
+    "video": null,
+    "links": null,
+    "bid": null,
+    "beacon_distance": null
+  },
+  "contentObjectOutput": {
+    "id": "61b350e69f7a7",
+    "images": [
+      {
+        "large": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-1024x717.jpg",
+        "medium": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-300x210.jpg",
+        "thumbnail": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-150x150.jpg"
+      }
+    ],
+    "order": 0,
+    "postStatus": "publish",
+    "searchableId": "001",
+    "title": "Objekt 1",
+    "description": "Beskrivning\n\n",
+    "location": {
+      "id": 4,
+      "latitude": 56.0467692,
+      "links": null,
+      "longitude": 12.6945437,
+      "streetAddress": "Stortorget",
+      "title": {
+        "rendered": "Stortorget",
+        "plain_text": "Stortorget"
+      }
+    }
+  },
+  "subAttractionInput": {
+    "order": 0,
+    "nid": null,
+    "bid": null,
+    "beacon_distance": null,
+    "content": [
+      "61b350e69f7a7"
+    ],
+    "location": 4
+  },
+  "subAttractionOutput": {
+    "id": 4,
+    "latitude": 56.0467692,
+    "links": null,
+    "longitude": 12.6945437,
+    "streetAddress": "Stortorget",
+    "title": {
+      "rendered": "Stortorget",
+      "plain_text": "Stortorget"
+    }
+  }
+}
