@@ -233,7 +233,7 @@ export const parseLinks = data => {
   return links;
 };
 
-const parseContentObject = (key, data, subAttractions, locations) => {
+export const parseContentObject = (key, data, subAttractions, locations) => {
   if (typeof data.order !== 'number') {
     throw new Error('Failed to parse order from ' + data);
   }

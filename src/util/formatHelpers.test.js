@@ -13,6 +13,8 @@ import {
   parseLinks,
   parseSubAttraction,
   parseGuide,
+  parseContentObject,
+  parseGuideGroup,
 } from './formatHelpers';
 
 import * as mock from '../mocks';
@@ -105,28 +107,12 @@ describe('parseProperty', () => {
 describe('parseLocation', () => {
   test('return parsed location', () => {
     const parsedLocation = {
-      id: 999,
-      latitude: 56.04779,
-      links: [{ service: 'webpage', url: 'https://exampledomain.com' }],
-      longitude: 12.6890579,
-      streetAddress: 'Mount doom',
-      title: { rendered: 'Mount Doom', plain_text: 'Mount Doom' },
-      openingHours: [
-        {
-          closed: true,
-          closing: null,
-          dayNumber: 1,
-          opening: null,
-          weekday: 'Monday',
-        },
-        {
-          closed: false,
-          closing: '18:00',
-          dayNumber: 2,
-          opening: '10:00',
-          weekday: 'Tuesday',
-        },
-      ],
+      id: 4,
+      latitude: 56.0467692,
+      links: null,
+      longitude: 12.6945437,
+      streetAddress: 'Stortorget',
+      title: { rendered: 'Stortorget', plain_text: 'Stortorget' },
     };
 
     expect(parseLocation(mock.locationInput)).toMatchObject(parsedLocation);
@@ -175,7 +161,6 @@ describe('parseMediaContent', () => {
     modified: '2021-05-07 12:13:11',
     type: 'audio',
   };
-
   const parsedMedia = {
     contentType: 'audio',
     created: '2021-04-27T08:54:03.000Z',
@@ -231,37 +216,35 @@ describe('parseLinks', () => {
 describe('parseSubAttraction', () => {
   test('return parsed sub attraction', () => {
     const id = '61b350e69f7a7';
-    const subAttractions = [
-      {
-        order: 0,
-        nid: null,
-        bid: null,
-        beacon_distance: null,
-        content: ['61b350e69f7a7'],
-        location: 999,
-      },
-    ];
+    const subAttractions = [mock.guideMeta.subAttractionInput];
     const locations = [mock.locationInput];
-    const parsedSubAttraction = {
-      id: 999,
-      latitude: 56.04779,
-      links: [
-        {
-          service: 'webpage',
-          url: 'https://exampledomain.com',
-        },
-      ],
-      longitude: 12.6890579,
-      streetAddress: 'Mount doom',
-      title: { rendered: 'Mount Doom', plain_text: 'Mount Doom' },
-    };
-
+    const parsedSubAttraction = mock.guideMeta.subAttractionOutput;
     expect(parseSubAttraction(id, subAttractions, locations)).toMatchObject(parsedSubAttraction);
   });
 });
 
 describe('parseGuide', () => {
   test('return parsed guide', () => {
-    expect(parseGuide(mock.guideInput)).toMatchObject(mock.guideResponse);
+    expect(parseGuide(mock.guideInput)).toMatchObject(mock.guideOutput);
+  });
+});
+
+describe('parseContentObject', () => {
+  test('return parsed content object', () => {
+    const key = '61b350e69f7a7';
+    const contentObject = mock.guideMeta.contentObjectInput;
+    const subAttractions = [mock.guideMeta.subAttractionInput];
+    const locations = [mock.locationInput];
+    const parsedContentObject = mock.guideMeta.contentObjectOutput;
+
+    expect(parseContentObject(key, contentObject, subAttractions, locations)).toMatchObject(
+      parsedContentObject
+    );
+  });
+});
+
+describe('parseGuideGroup', () => {
+  test('return parsed guide group', () => {
+    expect(parseGuideGroup(mock.guideGroupInput)).toMatchObject(mock.guideGroupOutput);
   });
 });
