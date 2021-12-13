@@ -12,6 +12,7 @@ import {
   parseLink,
   parseLinks,
   parseSubAttraction,
+  parseGuide,
 } from './formatHelpers';
 
 import * as mock from '../mocks';
@@ -256,5 +257,11 @@ describe('parseSubAttraction', () => {
     };
 
     expect(parseSubAttraction(id, subAttractions, locations)).toMatchObject(parsedSubAttraction);
+  });
+});
+
+describe('parseGuide', () => {
+  test('return parsed guide', () => {
+    expect(parseGuide(mock.guideInput)).toMatchObject(mock.guideResponse);
   });
 });
