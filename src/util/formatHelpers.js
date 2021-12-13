@@ -192,7 +192,8 @@ export const parseMediaContent = data => {
   };
   return media;
 };
-const parseSubAttraction = (id, subAttractions, locations) => {
+
+export const parseSubAttraction = (id, subAttractions, locations) => {
   const subAttractionData = subAttractions.find(item => {
     const { content } = item;
     return content instanceof Array && content.indexOf(id) > -1;

@@ -11,9 +11,10 @@ import {
   parseMediaContent,
   parseLink,
   parseLinks,
+  parseSubAttraction,
 } from './formatHelpers';
 
-import location from '../mocks/location';
+import * as mock from '../mocks';
 
 describe('parseUrl', () => {
   test('return null if URL is not valid', () => {
@@ -127,7 +128,7 @@ describe('parseLocation', () => {
       ],
     };
 
-    expect(parseLocation(location)).toMatchObject(parsedLocation);
+    expect(parseLocation(mock.locationInput)).toMatchObject(parsedLocation);
   });
 });
 
@@ -223,5 +224,37 @@ describe('parseLinks', () => {
       },
     ];
     expect(parseLinks(data)).toMatchObject(links);
+  });
+});
+
+describe('parseSubAttraction', () => {
+  test('return parsed sub attraction', () => {
+    const id = '61b350e69f7a7';
+    const subAttractions = [
+      {
+        order: 0,
+        nid: null,
+        bid: null,
+        beacon_distance: null,
+        content: ['61b350e69f7a7'],
+        location: 999,
+      },
+    ];
+    const locations = [mock.locationInput];
+    const parsedSubAttraction = {
+      id: 999,
+      latitude: 56.04779,
+      links: [
+        {
+          service: 'webpage',
+          url: 'https://exampledomain.com',
+        },
+      ],
+      longitude: 12.6890579,
+      streetAddress: 'Mount doom',
+      title: { rendered: 'Mount Doom', plain_text: 'Mount Doom' },
+    };
+
+    expect(parseSubAttraction(id, subAttractions, locations)).toMatchObject(parsedSubAttraction);
   });
 });
