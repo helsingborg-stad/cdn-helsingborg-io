@@ -1,0 +1,34 @@
+{
+  "id": 11,
+  "name": "Category example",
+  "slug": "category-example",
+  "description": "Description example.",
+  "groupId": 2,
+  "lang": "sv",
+  "guidesCount": 1,
+  "active": true,
+  "images": {
+    "large": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/orion-nebula-11107_1920-1024x576.jpg",
+    "medium": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/orion-nebula-11107_1920-300x169.jpg",
+    "thumbnail": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/orion-nebula-11107_1920-150x150.jpg"
+  },
+  "location": {
+    "id": 4,
+    "latitude": 56.0467692,
+    "links": null,
+    "longitude": 12.6945437,
+    "streetAddress": "Stortorget",
+    "title": {
+      "rendered": "Stortorget",
+      "plain_text": "Stortorget"
+    }
+  },
+  "pointProperties": [
+    {
+      "id": 14,
+      "name": "WC",
+      "slug": "wc",
+      "icon": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/helsingborg.svg"
+    }
+  ]
+}

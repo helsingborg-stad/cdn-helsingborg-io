@@ -1,0 +1,100 @@
+{
+  "id": 4,
+  "date": "2021-12-10T13:14:20",
+  "slug": "stortorget",
+  "title": {
+    "rendered": "Stortorget",
+    "plain_text": "Stortorget"
+  },
+  "featured_media": 0,
+  "parent": 0,
+  "property": [
+    {
+      "id": 14,
+      "name": "WC",
+      "slug": "wc",
+      "icon": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/helsingborg.svg"
+    }
+  ],
+  "street_address": "Stortorget",
+  "postal_code": "252 23",
+  "city": "Helsingborg",
+  "municipality": null,
+  "country": null,
+  "latitude": "56.0467692",
+  "longitude": "12.6945437",
+  "formatted_address": "Stortorget, 252 23, Helsingborg",
+  "open_hours": null,
+  "open_hour_exceptions": null,
+  "links": null,
+  "gallery": null,
+  "membership_cards": null,
+  "organizers": null,
+  "lang": "sv",
+  "translations": {
+    "sv": 4
+  },
+  "_links": {
+    "self": [
+      {
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/location/4"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/location"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/types/location"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 3,
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/location/4/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 7,
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/location/4/revisions/7"
+      }
+    ],
+    "complete": [
+      {
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/location/4/?_embed"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/media?parent=4"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "user_groups",
+        "embeddable": true,
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/user_groups?post=4"
+      },
+      {
+        "taxonomy": "location_categories",
+        "embeddable": true,
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/location_categories?post=4"
+      },
+      {
+        "taxonomy": "property",
+        "embeddable": true,
+        "href": "https://api.helsingborg.se/event-demo/json/wp/v2/property?post=4"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

@@ -1,18 +1,12 @@
-const parseUrl = urlString => {
-  if (urlString === null || urlString === undefined) {
-    return null;
-  }
-
+export const parseUrl = urlString => {
   try {
     return new URL(urlString).toString();
   } catch (error) {
-    console.error('Not a well formatted url, discarding: ' + urlString);
+    return null;
   }
-
-  return null;
 };
 
-const parseImages = item => {
+export const parseImages = item => {
   const images = {
     large: parseUrl(item.large),
     medium: parseUrl(item.medium),
@@ -21,7 +15,7 @@ const parseImages = item => {
   return images;
 };
 
-const parseOpeningHour = item => {
+export const parseOpeningHour = item => {
   const { weekday, closed, opening, closing, day_number: dayNumber } = item;
 
   const openHour = {
@@ -34,26 +28,14 @@ const parseOpeningHour = item => {
   return openHour;
 };
 
-const parseProperty = item => {
-  const property = {
-    id: item.id,
-    name: item.name,
-    slug: item.slug,
-  };
+export const parseProperty = item => ({
+  id: item.id,
+  name: item.name,
+  slug: item.slug,
+  icon: parseUrl(item.icon),
+});
 
-  if (item.icon !== null) {
-    try {
-      property.icon = new URL(item.icon).toString();
-    } catch (e) {
-      // not a well formatted url, discarding
-      console.warning('Not a well formatted url', e);
-    }
-  }
-
-  return property;
-};
-
-const parseLocation = item => {
+export const parseLocation = item => {
   const {
     id,
     street_address: streetAddress,
@@ -163,14 +145,14 @@ export const parseGuideGroup = item => {
   return guideGroup;
 };
 
-const parseGuideType = item => {
+export const parseGuideType = item => {
   const acceptedGuideTypes = ['guide', 'trail'];
   return acceptedGuideTypes.find(type => type === item);
 };
 
-const getPostStatus = active => (active ? 'publish' : 'draft');
+export const getPostStatus = active => (active ? 'publish' : 'draft');
 
-function parseImageUrls(data) {
+export function parseImageUrls(data) {
   const images = [];
   try {
     if (data instanceof Array) {
@@ -181,19 +163,20 @@ function parseImageUrls(data) {
     }
   } catch (error) {
     // something went wrong
-    console.warning('Failed to parse images data: ', data);
+    console.log('Failed to parse images data: ', data);
   }
   return images;
 }
 
-function parseDate(data) {
-  if (data === null || data === undefined) {
-    throw new Error('Can not parse null/undefined to a date.');
+export const parseDate = date => {
+  if (!date) {
+    return null;
   }
-  return new Date(data).toISOString();
-}
 
-function parseMediaContent(data) {
+  return new Date(date).toISOString();
+};
+
+export const parseMediaContent = data => {
   if (!(data instanceof Object)) {
     throw new Error('Failed to parse media content from data: ' + data);
   }
@@ -208,9 +191,9 @@ function parseMediaContent(data) {
     url: new URL(data.url).toString(),
   };
   return media;
-}
+};
 
-const parseSubAttraction = (id, subAttractions, locations) => {
+export const parseSubAttraction = (id, subAttractions, locations) => {
   const subAttractionData = subAttractions.find(item => {
     const { content } = item;
     return content instanceof Array && content.indexOf(id) > -1;
@@ -229,13 +212,13 @@ const parseSubAttraction = (id, subAttractions, locations) => {
   return location;
 };
 
-const parseLink = data => ({
+export const parseLink = data => ({
   title: data.title,
   type: data.service,
   url: new URL(data.link).toString(),
 });
 
-const parseLinks = data => {
+export const parseLinks = data => {
   const links = [];
   for (const item of data) {
     try {
@@ -250,7 +233,7 @@ const parseLinks = data => {
   return links;
 };
 
-const parseContentObject = (key, data, subAttractions, locations) => {
+export const parseContentObject = (key, data, subAttractions, locations) => {
   if (typeof data.order !== 'number') {
     throw new Error('Failed to parse order from ' + data);
   }
@@ -295,7 +278,7 @@ const parseContentObject = (key, data, subAttractions, locations) => {
   return obj;
 };
 
-const parseContentObjects = (contentData, subAttractionsData, locationsData) => {
+export const parseContentObjects = (contentData, subAttractionsData, locationsData) => {
   const keys = Object.keys(contentData);
 
   let subAttractions = [];
@@ -359,13 +342,13 @@ export const parseGuide = item => {
     guide.contentObjects = parseContentObjects(contentObjects, subAttractions, locationData);
   }
 
-  if (item.guide_date_start) {
-    const dateStart = parseDate(item.guide_date_start);
+  const dateStart = parseDate(item.guide_date_start);
+  if (dateStart) {
     guide.dateStart = dateStart;
   }
 
-  if (item.guide_date_end) {
-    const dateEnd = parseDate(item.guide_date_end);
+  const dateEnd = parseDate(item.guide_date_end);
+  if (dateEnd) {
     guide.dateEnd = dateEnd;
   }
 

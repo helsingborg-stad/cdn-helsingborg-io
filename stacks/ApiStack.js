@@ -120,14 +120,6 @@ export default class ApiStack extends sst.Stack {
           },
           methodOptions: { apiKeyRequired: true },
         },
-        'PUT /guidegroups/{id}': {
-          function: {
-            srcPath: 'src/guidegroups/',
-            handler: 'updateGuideGroup.main',
-            environment: { tableName: guidegroupsTable.tableName },
-          },
-          methodOptions: { apiKeyRequired: true },
-        },
         // Languages
         'GET /languages': {
           function: {
