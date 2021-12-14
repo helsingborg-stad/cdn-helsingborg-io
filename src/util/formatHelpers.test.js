@@ -1,23 +1,23 @@
+import * as mock from '../mocks';
 import {
-  parseUrl,
-  parseImages,
-  parseDate,
-  parseOpeningHour,
-  parseProperty,
-  parseLocation,
-  parseGuideType,
   getPostStatus,
+  parseContentObject,
+  parseContentObjects,
+  parseDate,
+  parseGuide,
+  parseGuideGroup,
+  parseGuideType,
+  parseImages,
   parseImageUrls,
-  parseMediaContent,
   parseLink,
   parseLinks,
+  parseLocation,
+  parseMediaContent,
+  parseOpeningHour,
+  parseProperty,
   parseSubAttraction,
-  parseGuide,
-  parseContentObject,
-  parseGuideGroup,
+  parseUrl,
 } from './formatHelpers';
-
-import * as mock from '../mocks';
 
 describe('parseUrl', () => {
   test('return null if URL is not valid', () => {
@@ -246,5 +246,17 @@ describe('parseContentObject', () => {
 describe('parseGuideGroup', () => {
   test('return parsed guide group', () => {
     expect(parseGuideGroup(mock.guideGroupInput)).toMatchObject(mock.guideGroupOutput);
+  });
+});
+
+describe('parseContentObjects', () => {
+  test('return parsed content objects', () => {
+    const objectData = mock.guideMeta.contentObjectsInput;
+    const subAttractions = [mock.guideMeta.subAttractionInput];
+    const locations = [mock.locationInput];
+    const parsedContentObjects = [mock.guideMeta.contentObjectOutput];
+    expect(parseContentObjects(objectData, subAttractions, locations)).toEqual(
+      parsedContentObjects
+    );
   });
 });

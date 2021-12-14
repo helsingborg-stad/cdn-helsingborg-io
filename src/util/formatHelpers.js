@@ -278,7 +278,7 @@ export const parseContentObject = (key, data, subAttractions, locations) => {
   return obj;
 };
 
-const parseContentObjects = (contentData, subAttractionsData, locationsData) => {
+export const parseContentObjects = (contentData, subAttractionsData, locationsData) => {
   const keys = Object.keys(contentData);
 
   let subAttractions = [];
