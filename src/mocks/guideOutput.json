@@ -1,0 +1,57 @@
+{
+  "childFriendly": false,
+  "contentObjects": [
+    {
+      "id": "61b350e69f7a7",
+      "images": [
+        {
+          "large": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-1024x717.jpg",
+          "medium": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-300x210.jpg",
+          "thumbnail": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-150x150.jpg"
+        }
+      ],
+      "order": 0,
+      "postStatus": "publish",
+      "searchableId": "001",
+      "title": "Objekt 1",
+      "description": "Beskrivning\n\n",
+      "location": {
+        "id": 4,
+        "latitude": 56.0467692,
+        "links": null,
+        "longitude": 12.6945437,
+        "streetAddress": "Stortorget",
+        "title": {
+          "rendered": "Stortorget",
+          "plain_text": "Stortorget"
+        }
+      }
+    }
+  ],
+  "description": "description here",
+  "guideGroupId": 11,
+  "guideType": "trail",
+  "id": 12,
+  "images": {
+    "large": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-1024x717.jpg",
+    "medium": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-300x210.jpg",
+    "thumbnail": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/stars-67616_1920-150x150.jpg"
+  },
+  "name": "This is a guide",
+  "postStatus": "publish",
+  "slug": "this-is-a-guide",
+  "tagline": "Tagline lorem ipsum",
+  "location": {
+    "id": 4,
+    "latitude": 56.0467692,
+    "links": null,
+    "longitude": 12.6945437,
+    "streetAddress": "Stortorget",
+    "title": {
+      "rendered": "Stortorget",
+      "plain_text": "Stortorget"
+    }
+  },
+  "dateStart": "2021-12-16T00:00:00.000Z",
+  "dateEnd": "2021-12-19T00:00:00.000Z"
+}

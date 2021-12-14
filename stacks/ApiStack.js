@@ -120,14 +120,6 @@ export default class ApiStack extends sst.Stack {
           },
           methodOptions: { apiKeyRequired: true },
         },
-        'PUT /guidegroups/{id}': {
-          function: {
-            srcPath: 'src/guidegroups/',
-            handler: 'updateGuideGroup.main',
-            environment: { tableName: guidegroupsTable.tableName },
-          },
-          methodOptions: { apiKeyRequired: true },
-        },
         // Languages
         'GET /languages': {
           function: {
@@ -147,7 +139,7 @@ export default class ApiStack extends sst.Stack {
         'DELETE /languages/{id}': {
           function: {
             srcPath: 'src/languages/',
-            handler: 'deleteLanguage.main',
+            handler: 'deleteLanguage.handler',
             environment: { tableName: languagesTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },
@@ -156,7 +148,7 @@ export default class ApiStack extends sst.Stack {
         'GET /guides': {
           function: {
             srcPath: 'src/guides',
-            handler: 'getGuides.main',
+            handler: 'getGuides.handler',
             environment: { tableName: guidesTable.tableName },
           },
           integrationOptions: {
@@ -180,7 +172,7 @@ export default class ApiStack extends sst.Stack {
         'POST /guides': {
           function: {
             srcPath: 'src/guides',
-            handler: 'createGuides.main',
+            handler: 'createGuides.handler',
             environment: { tableName: guidesTable.tableName },
           },
           methodOptions: { apiKeyRequired: true },

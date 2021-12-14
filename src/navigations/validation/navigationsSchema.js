@@ -48,7 +48,7 @@ export const deleteNavigationSchema = {
   },
 };
 
-export const getNavigationSchema = {
+export const getNavigationsSchema = {
   type: 'object',
   required: ['queryStringParameters'],
   properties: {

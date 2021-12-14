@@ -1,7 +1,9 @@
 import errorHandler from '../util/errorHandler';
 import dynamoDb from '../util/dynamodb';
+import { parseEncodeAndValidatePath } from '../util/commonMiddleware';
+import { getGuidesSchema } from './validation/guidesSchema';
 
-export const main = errorHandler(async event => {
+const main = errorHandler(async event => {
   const { include: queryInclude, guideGroupId: queryGuideGroupId } =
     event.queryStringParameters ?? {};
 
@@ -44,3 +46,7 @@ export const main = errorHandler(async event => {
   // Return empty array if no event query parameters found.
   return [];
 });
+
+const handler = parseEncodeAndValidatePath(main, getGuidesSchema);
+
+export { handler };

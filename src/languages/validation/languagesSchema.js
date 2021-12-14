@@ -14,3 +14,17 @@ export const createLanguagesSchema = {
     },
   },
 };
+
+export const deleteLanguagesSchema = {
+  type: 'object',
+  required: ['pathParameters'],
+  properties: {
+    pathParameters: {
+      type: 'object',
+      required: ['id'],
+      properties: {
+        id: { type: 'string', pattern: '^\\d{1,}$' },
+      },
+    },
+  },
+};
