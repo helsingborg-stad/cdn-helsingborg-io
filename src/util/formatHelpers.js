@@ -106,7 +106,6 @@ export const parseGuideGroup = item => {
     },
     settings,
     _embedded,
-    count,
     lang,
     user_group: groupId,
   } = item;
@@ -135,7 +134,6 @@ export const parseGuideGroup = item => {
     description,
     groupId,
     lang,
-    guidesCount: count,
     active: settings.active,
     images,
     location,

@@ -5,7 +5,6 @@
   "description": "Description example.",
   "groupId": 2,
   "lang": "sv",
-  "guidesCount": 1,
   "active": true,
   "images": {
     "large": "https://api.helsingborg.se/wp-content/uploads/sites/7/2021/12/orion-nebula-11107_1920-1024x576.jpg",
