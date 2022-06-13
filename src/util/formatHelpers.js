@@ -452,13 +452,17 @@ const parseInteractiveGuideSteps = steps => {
 };
 
 export const parseInteractiveGuide = data => {
+  const locationData = data?._embedded?.location?.[0]?.id
+    ? parseLocation(data._embedded.location[0])
+    : null;
   const interactiveGuide = {
     id: data.id,
     title: data.title.rendered,
-    guideGroupId: data.guidegroup[0].id,
+    guideGroupId: data?.guidegroup?.[0].id ? data.guidegroup[0].id : null,
     image: data?.featured_media?.source_url ? data.featured_media.source_url : null,
     steps: parseInteractiveGuideSteps(data.steps.filter(step => step.type !== 'finish')),
     finish: parseInteractiveGuideFinish(data.steps.find(step => step.type === 'finish')),
+    location: locationData,
   };
 
   return interactiveGuide;
